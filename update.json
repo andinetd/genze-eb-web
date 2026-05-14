@@ -1,0 +1,6 @@
+{
+  "version_code": 1,
+  "version_name": "1.0.0",
+  "release_notes": "Initial release with Google Sign-In, profile settings, and auto-update support.",
+  "apk_url": "https://example.com/path/to/app-release.apk"
+}
