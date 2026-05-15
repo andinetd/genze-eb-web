@@ -1,94 +1,57 @@
-# Faranka Website & OTA Update Hub
+# Faranka Marketing Site
 
-This folder contains the marketing website and OTA (Over-The-Air) update configuration for the Faranka app.
+This repository now contains a Next.js marketing site for Faranka plus the OTA update payload used by the app.
 
-## Structure
+## What Changed
 
-- `index.html` - Landing page for the app
-- `update.json` - OTA update configuration (checked by the app on startup)
-- `releases/` - Folder for storing APK files (optional)
+- `app/page.js` renders the marketing homepage.
+- `app/layout.js` sets the site shell and typography.
+- `app/update.json/route.js` serves the OTA config at `/update.json`.
+- `update.json` remains the source file for release metadata.
 
-## Setup Instructions
+## Run Locally
 
-### 1. Deploy to GitHub Pages
+1. Install dependencies with `npm install`.
+2. Start the dev server with `npm run dev`.
+3. Open `http://localhost:3000`.
 
-1. Create a **new public GitHub repo** called `genzeb-website`
-2. Push this folder to that repo
-3. Go to repo Settings → Pages → Source: Deploy from `main` branch
-4. Your site will be live at `https://USERNAME.github.io/genzeb-website/`
+## Update Flow
 
-### 2. Update the OTA URL in the App
+When you ship a new Android build, update `update.json` with the next `version_code`, `version_name`, release notes, and the APK URL. The page CTA and the `/update.json` route both read from that file.
 
-In your Flutter app (`lib/services/ota_update_service.dart`), update:
+## Deploy
 
-```dart
-final String _jsonUrl = 'https://USERNAME.github.io/genzeb-website/update.json';
-```
+Deploy this site to Vercel or another Next.js host. The OTA endpoint will be available at `/update.json`.
 
-Replace `USERNAME` with your GitHub username.
+## Automated Release Pipeline
 
-### 3. Building and Releasing Updates
+This public repo receives APK builds and version updates automatically from the private [`genzeb`](../genzeb) Flutter repo via GitHub Actions.
 
-When you have a new APK:
+**Setup (one-time):**
+
+1. In the private `genzeb` repo, create a **Personal Access Token**:
+   - GitHub → **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)**
+   - Generate new token with **repo** scope
+   - Copy the token
+
+2. Add the token as a secret in the private `genzeb` repo:
+   - Private repo → **Settings** → **Secrets and variables** → **Actions**
+   - New secret named `RELEASE_TOKEN` → paste the token
+
+3. The workflow is already configured in `.github/workflows/build-release.yml`
+
+**Release flow:**
 
 ```bash
-cd /path/to/genzeb
-flutter build apk --release
+cd ../genzeb  # Go to private Flutter repo
+git tag v1.0.0
+git push origin main --tags
 ```
 
-Then:
-1. Upload the APK to somewhere accessible (Google Drive, Dropbox, or your own server)
-2. Update `update.json` with the new version code and APK URL
-3. Commit and push to GitHub
-4. Users will see the update notification on next app startup
+GitHub Actions will:
+- Build the ARM64 APK
+- Push it to `public/faranka.apk` in this repo
+- Auto-update `update.json` with version info and APK download URL
+- Commit and push to this public repo
 
-## update.json Format
-
-```json
-{
-  "version_code": 2,
-  "version_name": "1.0.1",
-  "release_notes": "Bug fixes and improvements",
-  "apk_url": "https://link-to-your-apk.com/app-release.apk"
-}
-```
-
-**Important:** `version_code` must be higher than the current app version to trigger an update.
-
-## Example Workflow
-
-1. Make changes to the app
-2. Increment build number in `pubspec.yaml`: `version: 1.0.0+2`
-3. Build APK: `flutter build apk --release`
-4. Host APK somewhere (Google Drive public link, etc.)
-5. Update `update.json` with new `version_code` and APK URL
-6. Push changes to this GitHub repo
-7. Users see update prompt on next app launch
-
-## Hosting APKs
-
-### Option 1: Google Drive (Simplest)
-1. Upload APK to Google Drive
-2. Right-click → Share → Anyone with link can view
-3. Copy shareable link, it will be like: `https://drive.google.com/file/d/FILE_ID/view`
-4. Convert to direct download: `https://drive.google.com/uc?export=download&id=FILE_ID`
-
-### Option 2: GitHub Releases
-1. Create a GitHub Release in your private repo
-2. Attach the APK file
-3. Use the release download URL in `update.json`
-
-### Option 3: Your Own Server
-1. Upload APK to a web server you control
-2. Use the direct URL in `update.json`
-
-## Testing Updates
-
-1. Ensure app version in `pubspec.yaml` is lower than `version_code` in `update.json`
-2. Run app and go to Settings
-3. You should see the update prompt
-4. Test the update flow
-
----
-
-**Note:** Keep this website public (even if your main repo is private) so the app can fetch updates and the landing page is visible to users.
+The site and OTA config stay in sync automatically.
