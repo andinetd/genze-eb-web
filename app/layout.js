@@ -12,9 +12,9 @@ const bodyFont = Manrope({
 });
 
 export const metadata = {
-  title: "Faranka | SMS transaction intelligence for Android",
+  title: "Faranka | SMS finance intelligence for Android",
   description:
-    "A polished marketing site for Faranka, the SMS-based transaction parser and spending dashboard.",
+    "Marketing site for Faranka, the Android app that imports bank SMS, categorizes spending, and surfaces receipts, budgets, and insights.",
 };
 
 export default function RootLayout({ children }) {

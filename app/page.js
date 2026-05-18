@@ -3,42 +3,91 @@ import updateData from "../update.json";
 
 const featureCards = [
   {
-    title: "SMS parsing that stays quiet until it matters",
+    title: "Awash and CBE SMS parsing",
     description:
-      "Faranka reads bank messages, extracts transaction details, and keeps the noise out of your dashboard.",
+      "The app reads supported bank messages, extracts transaction details, and turns them into structured spending records.",
   },
   {
-    title: "Categories that make spending readable",
+    title: "A dashboard people can read in seconds",
     description:
-      "See where money goes with clean category grouping, trend summaries, and a chart-first layout.",
+      "Balances, category breakdowns, recent transactions, and charts are all built to answer the main question fast: where did the money go?",
   },
   {
-    title: "Local-first by design",
+    title: "Budgets, insights, and receipts",
     description:
-      "Keep personal financial data on-device with a workflow built for speed, privacy, and simple recovery.",
+      "Users can review transactions, open receipt details, compare trends, and keep an eye on overspend without leaving the app.",
   },
   {
-    title: "Built for the next release cycle",
+    title: "Local storage with Drift",
     description:
-      "Update delivery is driven by the same JSON file your app already checks on startup.",
+      "Imported data stays on the device, which keeps the workflow fast and gives users a clearer privacy story.",
+  },
+  {
+    title: "Google Sign-In and profile settings",
+    description:
+      "Identity, settings, and account management are already in the product flow, so the experience feels complete instead of experimental.",
+  },
+  {
+    title: "Auto-update ready",
+    description:
+      "The site and the app share the same release metadata, so new Android builds can ship with a simple update path.",
   },
 ];
 
 const steps = [
   {
     number: "01",
-    title: "Install the APK",
-    text: "Ship the Android build and point the site CTA at the current release.",
+    title: "Install the Android build",
+    text: "Send visitors straight to the APK and make the first conversion action obvious.",
   },
   {
     number: "02",
-    title: "Import SMS messages",
-    text: "Faranka scans supported bank messages and transforms them into structured transactions.",
+    title: "Grant SMS access and import",
+    text: "Faranka scans supported messages, detects banks, and structures transactions automatically.",
   },
   {
     number: "03",
-    title: "Review insights fast",
-    text: "Spend less time sorting records and more time acting on the categories that matter.",
+    title: "Review categories and trends",
+    text: "Users land in a dashboard that highlights balances, spending patterns, and problem categories.",
+  },
+  {
+    number: "04",
+    title: "Keep the app current",
+    text: "Release metadata from this site powers OTA checks, so the product stays easy to update.",
+  },
+];
+
+const productSignals = [
+  {
+    value: "Awash + CBE",
+    label: "Supported banks",
+  },
+  {
+    value: "Local-first",
+    label: "Data stays on device",
+  },
+  {
+    value: "Auto-resume",
+    label: "Offline parsing catches up",
+  },
+  {
+    value: "OTA ready",
+    label: "One JSON release source",
+  },
+];
+
+const proofPoints = [
+  {
+    title: "Recent activity",
+    value: "Transactions, receipts, and parsed SMS in one view",
+  },
+  {
+    title: "Decision support",
+    value: "Category trends, radar comparisons, and anomalies for spending",
+  },
+  {
+    title: "Retention loop",
+    value: "Sign in, import, analyze, update, repeat",
   },
 ];
 
@@ -54,103 +103,162 @@ export default function Home() {
   return (
     <main className="page-shell">
       <div className="page-noise" aria-hidden="true" />
+      <div className="backdrop-orbit backdrop-orbit-a" aria-hidden="true" />
+      <div className="backdrop-orbit backdrop-orbit-b" aria-hidden="true" />
+
+      <header className="top-rail reveal">
+        <div>
+          <p className="eyebrow">Faranka marketing site</p>
+          <strong className="brand-mark">SMS finance intelligence for Android</strong>
+        </div>
+        <div className="top-rail-actions">
+          <Link className="top-link" href="#proof">
+            Product proof
+          </Link>
+          <Link className="top-link top-link-primary" href="#release">
+            Latest release
+          </Link>
+        </div>
+      </header>
+
       <section className="hero-section">
         <div className="hero-copy reveal">
-          <p className="eyebrow">Faranka for Genzeb</p>
-          <h1>Turn bank SMS into a clean product story.</h1>
+          <p className="eyebrow">Built from the Flutter app</p>
+          <h1>Turn bank SMS into a product people trust.</h1>
           <p className="hero-text">
-            Faranka is the Android companion that parses transaction messages,
-            surfaces spending patterns, and keeps your financial data easy to
-            understand at a glance.
+            Faranka is the Android app that imports Awash and CBE messages,
+            converts them into transactions, and gives users a clear view of
+            balances, categories, receipts, budgets, and trends without making
+            the workflow feel heavy.
           </p>
           <div className="cta-row">
-            <a className={`cta cta-primary ${!updateData.apk_url ? "pending" : "active"}`} href={apkHref}>
+            <a
+              className={`cta cta-primary ${!updateData.apk_url ? "pending" : "active"}`}
+              href={apkHref}
+            >
               {apkLabel}
             </a>
             <Link className="cta cta-secondary" href="#release">
-              See the latest release
+              See how the app works
             </Link>
           </div>
           <div className="hero-meta">
             <span>Version {updateData.version_name}</span>
             <span>Build {updateData.version_code}</span>
-            <span>{releaseNotes[0] || "Release notes configured in update.json"}</span>
+            <span>Google Sign-In, profile settings, and auto-update support</span>
+          </div>
+
+          <div className="signal-grid">
+            {productSignals.map((signal) => (
+              <article className="signal-card" key={signal.label}>
+                <strong>{signal.value}</strong>
+                <span>{signal.label}</span>
+              </article>
+            ))}
           </div>
         </div>
 
         <div className="hero-visual reveal delay-1" aria-hidden="true">
-          <div className="visual-orb visual-orb-a" />
-          <div className="visual-orb visual-orb-b" />
-          <div className="dashboard-card dashboard-card-main">
-            <div className="card-topline">
-              <span className="card-chip">Live snapshot</span>
-              <span className="card-subtle">Today</span>
-            </div>
-            <div className="metric-stack">
-              <p className="metric-label">Spending this week</p>
-              <strong className="metric-value">ETB 18,450</strong>
-              <span className="metric-trend">+8% from last week</span>
-            </div>
-            <div className="chart-bars" role="presentation">
-              <span style={{ height: "36%" }} />
-              <span style={{ height: "52%" }} />
-              <span style={{ height: "41%" }} />
-              <span style={{ height: "68%" }} />
-              <span style={{ height: "57%" }} />
-              <span style={{ height: "82%" }} />
-            </div>
-            <div className="mini-grid">
-              <article>
-                <span>Parsed SMS</span>
-                <strong>1,248</strong>
-              </article>
-              <article>
-                <span>Active categories</span>
-                <strong>12</strong>
-              </article>
-              <article>
-                <span>Alerts resolved</span>
-                <strong>98%</strong>
-              </article>
+          <div className="device-shell">
+            <div className="device-glow device-glow-a" />
+            <div className="device-glow device-glow-b" />
+            <div className="device-screen">
+              <div className="screen-topbar">
+                <span className="screen-dot" />
+                <span className="screen-label">Faranka dashboard</span>
+                <span className="screen-chip">Live</span>
+              </div>
+
+              <div className="screen-hero">
+                <div>
+                  <span className="screen-kicker">Weekly spending</span>
+                  <strong className="screen-value">ETB 18,450</strong>
+                  <p className="screen-copy">Parsed from bank SMS and grouped by category.</p>
+                </div>
+                <div className="screen-pill-stack">
+                  <span>Awash</span>
+                  <span>CBE</span>
+                  <span>Receipts linked</span>
+                </div>
+              </div>
+
+              <div className="screen-chart">
+                <span style={{ height: "44%" }} />
+                <span style={{ height: "58%" }} />
+                <span style={{ height: "36%" }} />
+                <span style={{ height: "71%" }} />
+                <span style={{ height: "63%" }} />
+                <span style={{ height: "86%" }} />
+              </div>
+
+              <div className="screen-metrics">
+                <article>
+                  <span>SMS imported</span>
+                  <strong>1,248</strong>
+                </article>
+                <article>
+                  <span>Categories</span>
+                  <strong>12</strong>
+                </article>
+                <article>
+                  <span>Alerts resolved</span>
+                  <strong>98%</strong>
+                </article>
+              </div>
+
+              <div className="screen-feed">
+                <article>
+                  <span>Budget watch</span>
+                  <strong>Groceries at 72%</strong>
+                </article>
+                <article>
+                  <span>Offline scan</span>
+                  <strong>Auto-resume enabled</strong>
+                </article>
+                <article>
+                  <span>Release</span>
+                  <strong>Version {updateData.version_name}</strong>
+                </article>
+              </div>
             </div>
           </div>
-          <div className="dashboard-card dashboard-card-float">
-            <span className="card-chip">Auto-update</span>
-            <strong>Version {updateData.version_name}</strong>
-            <p>{updateData.release_notes}</p>
-          </div>
+
+          <aside className="floating-note floating-note-a">
+            <span>Trust signal</span>
+            <strong>Local storage with Drift keeps the app on-device.</strong>
+          </aside>
+
+          <aside className="floating-note floating-note-b">
+            <span>Release path</span>
+            <strong>The site and app share one release JSON source.</strong>
+          </aside>
         </div>
       </section>
 
-      <section className="stats-section reveal delay-2">
-        <article>
-          <span>Fast setup</span>
-          <strong>Single APK flow</strong>
-        </article>
-        <article>
-          <span>Designed for trust</span>
-          <strong>Local-first storage</strong>
-        </article>
-        <article>
-          <span>Clarity over clutter</span>
-          <strong>Charts, categories, summaries</strong>
-        </article>
+      <section className="proof-strip reveal delay-2" id="proof">
+        {proofPoints.map((point) => (
+          <article className="proof-card" key={point.title}>
+            <span>{point.title}</span>
+            <strong>{point.value}</strong>
+          </article>
+        ))}
       </section>
 
       <section className="content-section reveal delay-2">
         <div className="section-heading">
-          <p className="eyebrow">Product value</p>
-          <h2>Everything the site needs to sell the app in one page.</h2>
+          <p className="eyebrow">Why the app matters</p>
+          <h2>A conversion page should sell the actual workflow, not just the idea.</h2>
           <p>
-            The design is intentionally focused: one sharp promise, a clean
-            release path, and enough proof to make the app feel real before the
-            user installs it.
+            This redesign mirrors the product more closely: supported bank SMS in,
+            structured transactions out, then a dashboard that makes the data
+            actionable through categories, receipts, budgets, and insights.
           </p>
         </div>
 
         <div className="feature-grid">
           {featureCards.map((card) => (
             <article className="feature-card" key={card.title}>
+              <div className="feature-tag" />
               <h3>{card.title}</h3>
               <p>{card.description}</p>
             </article>
@@ -158,13 +266,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="content-section split-section reveal delay-3">
+      <section className="content-section flow-section reveal delay-3" id="flow">
         <div className="section-heading narrow">
-          <p className="eyebrow">How it works</p>
-          <h2>Simple enough for users, structured enough for updates.</h2>
+          <p className="eyebrow">User flow</p>
+          <h2>From message import to insight, the path stays short.</h2>
           <p>
-            This keeps the marketing story aligned with the actual app flow:
-            install, parse, review, and update.
+            The app is strongest when the onboarding story is obvious: install,
+            import, review, and keep up with releases.
           </p>
         </div>
 
@@ -182,36 +290,43 @@ export default function Home() {
       </section>
 
       <section className="release-section reveal delay-3" id="release">
-        <div>
+        <div className="release-copy">
           <p className="eyebrow">Current release</p>
-          <h2>Ready for the next build whenever you are.</h2>
+          <h2>Keep the APK and the website in sync.</h2>
           <p>
-            The CTA on this page reads directly from the same release data the
-            app uses for OTA checks.
+            The download button and release details are driven by the same JSON
+            file the app uses for OTA checks, so the marketing page stays aligned
+            with what is actually shipping.
           </p>
+
+          <div className="release-summary">
+            <article>
+              <span>Version</span>
+              <strong>{updateData.version_name}</strong>
+            </article>
+            <article>
+              <span>Build</span>
+              <strong>{updateData.version_code}</strong>
+            </article>
+            <article>
+              <span>Delivery</span>
+              <strong>{updateData.apk_url ? "APK available" : "APK pending"}</strong>
+            </article>
+          </div>
         </div>
 
         <div className="release-card">
-          <div className="release-row">
-            <span>Version</span>
-            <strong>{updateData.version_name}</strong>
+          <div className={`release-banner ${updateData.apk_url ? "active" : "pending"}`}>
+            <span>APK download</span>
+            {updateData.apk_url ? (
+              <a href={updateData.apk_url} className="apk-link">
+                {updateData.apk_url}
+              </a>
+            ) : (
+              <strong className="pending-text">Not configured yet</strong>
+            )}
           </div>
-          <div className="release-row">
-            <span>Build</span>
-            <strong>{updateData.version_code}</strong>
-          </div>
-          <div className={`release-row apk-row ${updateData.apk_url ? "active" : "pending"}`}>
-            <div>
-              <span>APK Download</span>
-              {updateData.apk_url ? (
-                <a href={updateData.apk_url} className="apk-link">
-                  {updateData.apk_url}
-                </a>
-              ) : (
-                <strong className="pending-text">Not configured yet</strong>
-              )}
-            </div>
-          </div>
+
           <div className="release-notes">
             <span>Release notes</span>
             <ul>
