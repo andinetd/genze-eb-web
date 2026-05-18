@@ -2,5 +2,6 @@
   "version_code": 1,
   "version_name": "1.0.0",
   "release_notes": "Initial release with Google Sign-In, profile settings, and auto-update support.",
-  "apk_url": "https://raw.githubusercontent.com/andinetd/genzeb-website/main/public/faranka.apk"
+  "apk_url": "https://raw.githubusercontent.com/andinetd/genze-eb-web/main/public/faranka.apk",
+  "last_apk_fetch": "2026-05-18T00:00:00Z"
 }
