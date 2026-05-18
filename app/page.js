@@ -312,6 +312,14 @@ export default function Home() {
               <span>Delivery</span>
               <strong>{updateData.apk_url ? "APK available" : "APK pending"}</strong>
             </article>
+            <article>
+              <span>Last APK fetch</span>
+              <strong>
+                {updateData.last_apk_fetch
+                  ? new Date(updateData.last_apk_fetch).toLocaleString()
+                  : "Unknown"}
+              </strong>
+            </article>
           </div>
         </div>
 
