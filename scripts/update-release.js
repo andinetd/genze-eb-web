@@ -105,7 +105,8 @@ async function updateRelease() {
     const versionData = parsePubspec(pubspecContent);
 
     // 2. Get GitHub repo info from genzeb
-    let repo = process.argv[3];
+    const repoArgIndex = process.argv.indexOf("--repo");
+    let repo = repoArgIndex >= 0 ? process.argv[repoArgIndex + 1] : null;
     if (!repo) {
       repo = getGitHubRepoFromGit(genzebPath);
     }
