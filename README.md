@@ -17,15 +17,11 @@ This repository now contains a Next.js marketing site for Faranka plus the OTA u
 
 ## Update Flow
 
-When you ship a new Android build, update `update.json` with the next `version_code`, `version_name`, release notes, and the APK URL. The homepage and the `/update.json` route now fetch the live file from GitHub at request time, with a local fallback if GitHub is unavailable.
+When you ship a new Android build, update `update.json` with the next `version_code`, `version_name`, release notes, and the APK URL. The page CTA and the `/update.json` route both read from that file.
 
 ## Deploy
 
 Deploy this site to Vercel or another Next.js host. The OTA endpoint will be available at `/update.json`.
-
-## Cache Config
-
-Set `RELEASE_CACHE_SECONDS` to control how long the site caches release data from GitHub. The default is `3600` seconds.
 
 ## Automated Release Pipeline
 
