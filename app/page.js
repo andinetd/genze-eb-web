@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { getReleaseData } from "../lib/release-data";
 
-export const revalidate = 3600;
-
 const featureCards = [
   {
     title: "Awash and CBE SMS parsing",

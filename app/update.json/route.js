@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { RELEASE_CACHE_SECONDS, getReleaseData } from "../../lib/release-data";
 
-export const revalidate = 3600;
-
 export async function GET() {
   const updateData = await getReleaseData();
 

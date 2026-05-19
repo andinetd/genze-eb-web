@@ -23,6 +23,10 @@ When you ship a new Android build, update `update.json` with the next `version_c
 
 Deploy this site to Vercel or another Next.js host. The OTA endpoint will be available at `/update.json`.
 
+## Cache Config
+
+Set `RELEASE_CACHE_SECONDS` to control how long the site caches release data from GitHub. The default is `3600` seconds.
+
 ## Automated Release Pipeline
 
 This public repo receives APK builds and version updates automatically from the private [`genzeb`](../genzeb) Flutter repo via GitHub Actions.
