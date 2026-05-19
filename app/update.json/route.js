@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
-import updateData from "../../update.json";
+import { getReleaseData } from "../../lib/release-data";
 
-export function GET() {
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  const updateData = await getReleaseData();
+
   return NextResponse.json(updateData, {
     headers: {
       "Cache-Control": "public, max-age=0, must-revalidate",

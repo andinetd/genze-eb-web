@@ -17,7 +17,7 @@ This repository now contains a Next.js marketing site for Faranka plus the OTA u
 
 ## Update Flow
 
-When you ship a new Android build, update `update.json` with the next `version_code`, `version_name`, release notes, and the APK URL. The page CTA and the `/update.json` route both read from that file.
+When you ship a new Android build, update `update.json` with the next `version_code`, `version_name`, release notes, and the APK URL. The homepage and the `/update.json` route now fetch the live file from GitHub at request time, with a local fallback if GitHub is unavailable.
 
 ## Deploy
 

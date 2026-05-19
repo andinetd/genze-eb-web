@@ -1,5 +1,5 @@
 import Link from "next/link";
-import updateData from "../update.json";
+import { getReleaseData } from "../lib/release-data";
 
 const featureCards = [
   {
@@ -91,15 +91,33 @@ const proofPoints = [
   },
 ];
 
-const releaseNotes = updateData.release_notes
-  .split(/\.\s+/)
-  .map((note) => note.trim())
-  .filter(Boolean);
+export const dynamic = "force-dynamic";
 
-const apkHref = updateData.apk_url?.trim() || "#release";
-const apkLabel = updateData.apk_url?.trim() ? "Download APK" : "APK link pending";
+function getReleaseNotes(releaseNotesText = "") {
+  return releaseNotesText
+    .split(/\.\s+/)
+    .map((note) => note.trim())
+    .filter(Boolean);
+}
 
-export default function Home() {
+function formatLastFetch(lastApkFetch) {
+  if (!lastApkFetch) {
+    return "Unknown";
+  }
+
+  const fetchedDate = new Date(lastApkFetch);
+
+  return Number.isNaN(fetchedDate.getTime())
+    ? lastApkFetch
+    : fetchedDate.toLocaleString();
+}
+
+export default async function Home() {
+  const updateData = await getReleaseData();
+  const releaseNotes = getReleaseNotes(updateData.release_notes);
+  const apkHref = updateData.apk_url?.trim() || "#release";
+  const apkLabel = updateData.apk_url?.trim() ? "Download APK" : "APK link pending";
+
   return (
     <main className="page-shell">
       <div className="page-noise" aria-hidden="true" />
@@ -314,11 +332,7 @@ export default function Home() {
             </article>
             <article>
               <span>Last APK fetch</span>
-              <strong>
-                {updateData.last_apk_fetch
-                  ? new Date(updateData.last_apk_fetch).toLocaleString()
-                  : "Unknown"}
-              </strong>
+              <strong>{formatLastFetch(updateData.last_apk_fetch)}</strong>
             </article>
           </div>
         </div>
