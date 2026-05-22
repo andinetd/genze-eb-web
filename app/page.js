@@ -1,24 +1,36 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
+import { getReleaseData } from "../lib/release-data";
 
 function extractSection(source, tagName) {
   const match = source.match(new RegExp(`<${tagName}>([\\s\\S]*?)<\\/${tagName}>`, "i"));
   return match ? match[1] : "";
 }
 
-export default function Home() {
+export default async function Home() {
   try {
     const projectRoot = path.join(process.cwd());
     const filePath = path.join(projectRoot, "public", "faranka.html");
     const html = fs.readFileSync(filePath, "utf8");
+    const releaseData = await getReleaseData();
     const styles = extractSection(html, "style");
     const body = extractSection(html, "body");
+    const downloadHref = "/download";
+    const downloadLabel = releaseData?.version_name
+      ? `Latest APK v${releaseData.version_name}`
+      : "Download APK";
+
+    const hydratedBody = body
+      .replace(/href="\/faranka\.apk"/g, `href="${downloadHref}"`)
+      .replace(
+        /<strong style="color: var\(--black\); display: block; margin-bottom: 4px;">Download APK<\/strong>faranka\.apk/,
+        `<strong style="color: var(--black); display: block; margin-bottom: 4px;">${downloadLabel}</strong>${downloadHref}`,
+      );
 
     return (
       <main>
         <style dangerouslySetInnerHTML={{ __html: styles }} />
-        <div dangerouslySetInnerHTML={{ __html: body }} />
+        <div dangerouslySetInnerHTML={{ __html: hydratedBody }} />
       </main>
     );
   } catch (error) {
