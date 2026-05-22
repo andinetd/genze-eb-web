@@ -989,9 +989,102 @@
     .logos-row { gap: 24px; }
     .logos-strip { padding: 40px 20px; }
   }
+
+  /* ── DOWNLOAD ERROR DIALOG ── */
+  .download-error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-in;
+  }
+  .download-error.show {
+    display: flex;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .download-error-dialog {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.3s ease-out;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .download-error-dialog h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--black);
+  }
+  .download-error-dialog p {
+    color: var(--gray-600);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .download-error-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .download-error-actions button,
+  .download-error-actions a {
+    flex: 1;
+    min-width: 120px;
+    padding: 11px 20px;
+    border-radius: 9px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .download-error-actions .btn-retry {
+    background: var(--black);
+    color: var(--white);
+  }
+  .download-error-actions .btn-retry:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+  .download-error-actions .btn-close {
+    background: var(--gray-100);
+    color: var(--black);
+  }
+  .download-error-actions .btn-close:hover {
+    background: var(--gray-200);
+  }
 </style>
 </head>
 <body>
+
+<!-- Download Error Dialog -->
+<div id="downloadError" class="download-error">
+  <div class="download-error-dialog">
+    <h2>Download Failed</h2>
+    <p id="errorMessage">An error occurred while downloading the APK. Please try again.</p>
+    <div class="download-error-actions">
+      <button class="btn-retry" onclick="location.reload()">Retry</button>
+      <button class="btn-close" onclick="document.getElementById('downloadError').classList.remove('show')">Close</button>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav class="reveal">
@@ -1011,7 +1104,7 @@
   </ul>
   <div class="nav-actions">
     <a class="btn-ghost" href="mailto:support@faranka.com">Support</a>
-    <a class="btn-primary" href="#release">
+    <a class="btn-primary" href="/download" download="faranka.apk">
       Download APK
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -1020,7 +1113,7 @@
 
 <!-- HERO -->
 <section class="hero reveal delay-1">
-  <a class="hero-announce" href="#release">
+  <a class="hero-announce" href="/download" download="faranka.apk">
     <span class="hero-announce-badge">
       <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4"/></svg>
       New
@@ -1036,7 +1129,7 @@
   </p>
 
   <div class="hero-cta-row">
-    <a class="btn-hero-primary" href="#release">
+    <a class="btn-hero-primary" href="/download" download="faranka.apk">
       Download APK
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -1375,7 +1468,7 @@
       <span class="rc-status"><span class="rc-dot"></span>Build ready</span>
     </div>
     <div class="rc-body">
-      <a href="/download" class="rc-apk" style="display: block; text-decoration: none; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.8125rem; color: var(--gray-600); word-break: break-all; cursor: pointer; transition: background 0.2s;"><strong style="color: var(--black); display: block; margin-bottom: 4px;">Download APK</strong>Latest release</a>
+      <a href="/download" download="faranka.apk" class="rc-apk" style="display: block; text-decoration: none; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.8125rem; color: var(--gray-600); word-break: break-all; cursor: pointer; transition: background 0.2s;"><strong style="color: var(--black); display: block; margin-bottom: 4px;">Download APK</strong>Latest release</a>
       <div class="rc-notes">
         <span>Release notes</span>
         <ul>
@@ -1422,6 +1515,48 @@
   els.forEach(el => {
     el.style.animationPlayState = 'paused';
     io.observe(el);
+  });
+
+  // Download handler with error management
+  function handleDownloadClick(e) {
+    e.preventDefault();
+    const downloadUrl = e.currentTarget.getAttribute('href');
+    const errorDialog = document.getElementById('downloadError');
+
+    fetch(downloadUrl)
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(data => {
+            throw new Error(data.error || 'Download failed');
+          }).catch(err => {
+            throw new Error(err.message || 'Download failed with error');
+          });
+        }
+        return response.blob().then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'faranka.apk';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          a.remove();
+        });
+      })
+      .catch(error => {
+        console.error('Download error:', error);
+        document.getElementById('errorMessage').textContent =
+          error.message || 'Failed to download APK. Please check your connection and try again.';
+        errorDialog.classList.add('show');
+      });
+  }
+
+  // Attach click handlers to all download buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    const downloadLinks = document.querySelectorAll('a[href="/download"]');
+    downloadLinks.forEach(link => {
+      link.addEventListener('click', handleDownloadClick);
+    });
   });
 </script>
 </body>
