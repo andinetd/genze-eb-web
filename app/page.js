@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import PreservedHtmlClient from "./components/PreservedHtmlClient";
 import { getReleaseData } from "../lib/release-data";
 
 function extractSection(source, tagName) {
@@ -30,7 +31,8 @@ export default async function Home() {
     return (
       <main>
         <style dangerouslySetInnerHTML={{ __html: styles }} />
-        <div dangerouslySetInnerHTML={{ __html: hydratedBody }} />
+        {/* Render body only on client to avoid hydration mismatch */}
+        <PreservedHtmlClient html={hydratedBody} containerId="preserved-root" />
       </main>
     );
   } catch (error) {

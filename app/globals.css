@@ -3,8 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Ensure defaults used instead of relying on @apply for core utilities */
+  }
+
   body {
-    @apply bg-white text-black font-body antialiased;
+    background-color: #ffffff;
+    color: #0a0a0a;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
   }
 }
 
