@@ -8,7 +8,10 @@
   }
 
   body {
-    background-color: #ffffff;
+    background:
+      radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 34%),
+      radial-gradient(circle at 85% 12%, rgba(134, 239, 172, 0.12), transparent 28%),
+      #ffffff;
     color: #0a0a0a;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
