@@ -236,17 +236,6 @@
     margin-top: 14px;
   }
 
-  /* ── HERO VISUAL ── */
-  .hero-visual-wrap {
-    padding: 60px 32px 0;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 20px;
-    align-items: start;
-  }
-
   .hero-card {
     border-radius: 18px;
     overflow: hidden;
@@ -687,6 +676,12 @@
     padding: 20px;
   }
 
+  .phone-screenshot {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+  }
+
   .phone-screen {
     background: var(--black);
     border-radius: 20px;
@@ -762,6 +757,35 @@
   .phone-sms-bank { font-size: 0.65rem; color: rgba(255,255,255,.35); margin-top: 2px; }
   .phone-sms-amt { color: var(--green); font-weight: 500; }
   .phone-sms-amt.debit { color: rgba(255,255,255,.5); }
+
+  .real-app-image {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 28px;
+    box-shadow: 0 24px 64px rgba(0,0,0,.1);
+    overflow: hidden;
+    padding: 16px;
+  }
+
+  .real-app-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 18px;
+    background: var(--white);
+  }
+
+  .real-app-caption {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: 14px;
+  }
+
+  .flow-section .real-app-image {
+    width: min(100%, 430px);
+    justify-self: center;
+  }
 
   /* ── RELEASE ── */
   .release-section {
@@ -993,7 +1017,6 @@
     nav { padding: 0 20px; }
     .nav-links { display: none; }
     .hero { padding: 56px 20px 0; }
-    .hero-visual-wrap { grid-template-columns: 1fr; padding: 40px 20px 0; }
     .features-grid { grid-template-columns: 1fr; }
     .flow-section .section { grid-template-columns: 1fr; }
     .release-section { grid-template-columns: 1fr; padding: 60px 20px; }
@@ -1138,7 +1161,7 @@
   <h1>Track<em> Every</em> Frank.</h1>
 
   <p class="hero-sub">
-    Faranka reads your Awash and CBE bank messages, converts them into clean transaction records, and gives you a full dashboard — balances, categories, receipts, and trends — without the heavy workflow.
+    Faranka parses receipts links from sms messages automatically and categorizes each transaction based on the reason field you enter when making mobile transactions.
   </p>
 
   <div class="hero-cta-row">
@@ -1151,124 +1174,6 @@
 
   <p class="hero-trust-line">Trusted by users across Ethiopia · Local-first · No cloud required</p>
 </section>
-
-<!-- HERO VISUALS -->
-<div class="hero-visual-wrap reveal delay-2">
-  <!-- Left card: dark stats -->
-  <div class="hero-card hero-card-dark">
-    <div class="hcd-top">
-      <p class="hcd-label">Faranka dashboard</p>
-      <div class="hcd-amount">ETB 18,450</div>
-      <p class="hcd-sub">Weekly spending · parsed from SMS</p>
-      <div class="hcd-banks">
-        <span class="hcd-bank-chip live">● Live</span>
-        <span class="hcd-bank-chip">Awash</span>
-        <span class="hcd-bank-chip">CBE</span>
-      </div>
-    </div>
-
-    <div class="hcd-chart">
-      <div class="hcd-bar" style="height:44%"></div>
-      <div class="hcd-bar" style="height:58%"></div>
-      <div class="hcd-bar" style="height:36%"></div>
-      <div class="hcd-bar highlight" style="height:71%"></div>
-      <div class="hcd-bar highlight" style="height:63%"></div>
-      <div class="hcd-bar" style="height:86%"></div>
-      <div class="hcd-bar highlight" style="height:55%"></div>
-    </div>
-
-    <div class="hcd-metrics">
-      <div class="hcd-metric">
-        <div class="hcd-metric-label">SMS read</div>
-        <div class="hcd-metric-val">1,248</div>
-      </div>
-      <div class="hcd-metric">
-        <div class="hcd-metric-label">Categories</div>
-        <div class="hcd-metric-val">12</div>
-      </div>
-      <div class="hcd-metric">
-        <div class="hcd-metric-label">Resolved</div>
-        <div class="hcd-metric-val">98%</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right card: dashboard mockup -->
-  <div class="hero-card hero-card-light">
-    <div class="dash-topbar">
-      <div class="dash-topbar-left">
-        <div class="dash-avatar"></div>
-        <div>
-          <div class="dash-topbar-title">Welcome back</div>
-          <div class="dash-topbar-sub">Tuesday, 22 May 2026</div>
-        </div>
-      </div>
-      <span class="dash-badge">Auto-sync on</span>
-    </div>
-
-    <div class="dash-body">
-      <div class="dash-tile">
-        <div class="dash-tile-label">
-          Total balance
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#999" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <div class="dash-tile-val">ETB 42,800</div>
-        <div class="dash-tile-change">↑ 8.4% this month</div>
-      </div>
-      <div class="dash-tile">
-        <div class="dash-tile-label">Monthly spend</div>
-        <div class="dash-tile-val">ETB 24,100</div>
-        <div class="dash-tile-change" style="color:#dc2626">↑ 3.1% vs last</div>
-      </div>
-      <div class="dash-tile wide">
-        <div class="dash-tile-label">Spending trend</div>
-        <div class="sparkline">
-          <div class="spark-bar" style="height:40%"></div>
-          <div class="spark-bar" style="height:55%"></div>
-          <div class="spark-bar" style="height:38%"></div>
-          <div class="spark-bar accent" style="height:70%"></div>
-          <div class="spark-bar accent" style="height:62%"></div>
-          <div class="spark-bar" style="height:48%"></div>
-          <div class="spark-bar accent" style="height:85%"></div>
-          <div class="spark-bar" style="height:57%"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dash-feed">
-      <div class="feed-row">
-        <div class="feed-row-left">
-          <div class="feed-icon">🛒</div>
-          <div>
-            <div class="feed-name">Groceries</div>
-            <div class="feed-cat">Awash · Today 09:14</div>
-          </div>
-        </div>
-        <div class="feed-amt">−ETB 1,200</div>
-      </div>
-      <div class="feed-row">
-        <div class="feed-row-left">
-          <div class="feed-icon">⚡</div>
-          <div>
-            <div class="feed-name">Electricity</div>
-            <div class="feed-cat">CBE · Yesterday</div>
-          </div>
-        </div>
-        <div class="feed-amt">−ETB 450</div>
-      </div>
-      <div class="feed-row">
-        <div class="feed-row-left">
-          <div class="feed-icon">💸</div>
-          <div>
-            <div class="feed-name">Salary deposit</div>
-            <div class="feed-cat">Awash · May 20</div>
-          </div>
-        </div>
-        <div class="feed-amt" style="color:#15803d">+ETB 18,000</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- SIGNALS -->
 <div class="signals-strip reveal delay-3">
@@ -1397,53 +1302,15 @@
       </div>
     </div>
 
-    <!-- Phone mockup -->
+    <!-- App screenshot -->
     <div class="phone-mock reveal delay-2">
-      <div class="phone-screen">
-        <div class="phone-header">Faranka · v1.0.0</div>
-        <div class="phone-balance-label">Total Balance</div>
-        <div class="phone-balance">ETB 42,800</div>
-        <div class="phone-row">
-          <div class="phone-chip">
-            <div class="phone-chip-label">SMS Parsed</div>
-            <div class="phone-chip-val">1,248</div>
-          </div>
-          <div class="phone-chip">
-            <div class="phone-chip-label">This Month</div>
-            <div class="phone-chip-val">ETB 24.1k</div>
-          </div>
-        </div>
-        <div class="phone-sms-list">
-          <div class="phone-sms">
-            <div>
-              <div class="phone-sms-left">Grocery purchase</div>
-              <div class="phone-sms-bank">Awash · 09:14 AM</div>
-            </div>
-            <div class="phone-sms-amt debit">−1,200</div>
-          </div>
-          <div class="phone-sms">
-            <div>
-              <div class="phone-sms-left">Salary received</div>
-              <div class="phone-sms-bank">CBE · May 20</div>
-            </div>
-            <div class="phone-sms-amt">+18,000</div>
-          </div>
-          <div class="phone-sms">
-            <div>
-              <div class="phone-sms-left">Electricity bill</div>
-              <div class="phone-sms-bank">CBE · May 19</div>
-            </div>
-            <div class="phone-sms-amt debit">−450</div>
-          </div>
-          <div class="phone-sms">
-            <div>
-              <div class="phone-sms-left">Transfer out</div>
-              <div class="phone-sms-bank">Awash · May 18</div>
-            </div>
-            <div class="phone-sms-amt debit">−3,000</div>
-          </div>
-        </div>
-      </div>
+      <img
+        src="/image.png"
+        alt="Faranka app dashboard showing total balance, spending trends, and category breakdown"
+        class="phone-screenshot"
+        width="585"
+        height="1280"
+      />
     </div>
   </div>
 </div>
