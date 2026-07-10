@@ -24,7 +24,7 @@ export default async function Home() {
     const hydratedBody = body
       .replace(/href="\/faranka\.apk"/g, `href="${downloadHref}"`)
       .replace(
-        /<strong style="color: var\(--black\); display: block; margin-bottom: 4px;">Download APK<\/strong>faranka\.apk/,
+        /<strong style="color: var\(--black\); display: block; margin-bottom: 4px;">Download APK<\/strong>Latest release/,
         `<strong style="color: var(--black); display: block; margin-bottom: 4px;">${downloadLabel}</strong>${downloadHref}`,
       );
 
