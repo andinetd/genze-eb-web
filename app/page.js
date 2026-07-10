@@ -3,19 +3,15 @@ import path from "path";
 import PreservedHtmlClient from "./components/PreservedHtmlClient";
 import { getReleaseData } from "../lib/release-data";
 
-function extractSection(source, tagName) {
-  const match = source.match(new RegExp(`<${tagName}>([\\s\\S]*?)<\\/${tagName}>`, "i"));
-  return match ? match[1] : "";
-}
-
 export default async function Home() {
   try {
     const projectRoot = path.join(process.cwd());
-    const filePath = path.join(projectRoot, "public", "faranka.html");
-    const html = fs.readFileSync(filePath, "utf8");
+    const htmlPath = path.join(projectRoot, "public", "faranka.html");
+    const cssPath = path.join(projectRoot, "public", "faranka.css");
+    const html = fs.readFileSync(htmlPath, "utf8");
+    const styles = fs.readFileSync(cssPath, "utf8");
     const releaseData = await getReleaseData();
-    const styles = extractSection(html, "style");
-    const body = extractSection(html, "body");
+    const body = html.match(/<body>([\s\S]*)<\/body>/i)?.[1] || "";
     const downloadHref = "/download";
     const downloadLabel = releaseData?.version_name
       ? `Latest APK v${releaseData.version_name}`
