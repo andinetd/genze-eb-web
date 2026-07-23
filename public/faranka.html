@@ -13,6 +13,78 @@
 </head>
 <body>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Faranka",
+  "operatingSystem": "Android",
+  "applicationCategory": "Finance Application",
+  "description": "Faranka automatically parses bank SMS, categorizes transactions, and provides real-time budgets and spending insights — all on your device.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "ETB"
+  },
+  "featureList": [
+    "Automatic SMS import",
+    "Transaction categorization",
+    "Real-time budgets and spending pace",
+    "Weekly spending summaries",
+    "100% offline — no data leaves your phone"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Faranka?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Faranka is an Android app that reads your bank SMS messages and receipts, then automatically organizes them into a clear picture of your spending — budgets, categories, and trends, all on your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which banks are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Faranka currently supports Awash Bank and Commercial Bank of Ethiopia (CBE), with more banks coming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data stored in the cloud?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your financial data never leaves your phone. There are no accounts to create and no servers to trust. Faranka works entirely on your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Download the APK, install it on your Android device, and grant SMS permission once. Faranka will find your bank messages and let you choose how many to import."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit categories?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Faranka automatically assigns categories based on who you paid, but you can rename, merge, or create new ones at any time."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Download Error Dialog -->
 <div id="downloadError" class="download-error">
   <div class="download-error-dialog">
@@ -152,7 +224,7 @@ What if the reason you enter during every mobile transaction automatically track
 </section>
 
 <!-- HOW IT WORKS -->
-<div class="flow-section" id="flow">
+<section class="flow-section" id="flow">
   <div class="section">
     <div>
       <p class="section-eyebrow reveal">User flow</p>
@@ -213,7 +285,7 @@ What if the reason you enter during every mobile transaction automatically track
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">

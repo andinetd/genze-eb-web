@@ -14,10 +14,35 @@ const bodyFont = DM_Sans({
   weight: ["300", "400", "500"],
 });
 
+const siteUrl = "https://faranka.app";
+
 export const metadata = {
-  title: "Faranka | SMS finance intelligence for Android",
+  title: "Faranka — Automatic SMS Finance Tracker for Android",
   description:
-    "Marketing site for Faranka, the Android app that imports bank SMS, categorizes spending, and surfaces receipts, budgets, and insights.",
+    "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, spending pace, and insights — all on your device, no sign-up needed.",
+  openGraph: {
+    title: "Faranka — Track Every Birr. Automatically.",
+    description:
+      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — no account, no data upload.",
+    url: siteUrl,
+    siteName: "Faranka",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Faranka — Track Every Birr. Automatically.",
+    description:
+      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — no account, no data upload.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  other: {
+    keywords:
+      "finance tracker,SMS banking,expense tracker,budget app,Ethiopian bank app,Awash Bank,CBE,spending tracker,personal finance,Android finance app",
+  },
 };
 
 export default function RootLayout({ children }) {
