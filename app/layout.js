@@ -20,6 +20,10 @@ export const metadata = {
   title: "Faranka — Automatic SMS Finance Tracker for Android",
   description:
     "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, spending pace, and insights — all on your device, no sign-up needed.",
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Faranka — Track Every Birr. Automatically.",
     description:
@@ -28,12 +32,21 @@ export const metadata = {
     siteName: "Faranka",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Faranka — SMS Finance Intelligence for Android",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Faranka — Track Every Birr. Automatically.",
     description:
       "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — no account, no data upload.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
