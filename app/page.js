@@ -14,13 +14,10 @@ export default async function Home() {
     const body = html.match(/<body>([\s\S]*)<\/body>/i)?.[1] || "";
     const downloadHref = "/download";
     const version = releaseData?.version_name || "1.0.0";
+
     const hydratedBody = body
       .replace(/__VERSION__/g, version)
-      .replace(/href="\/faranka\.apk"/g, `href="${downloadHref}"`)
-      .replace(
-        /<strong style="color: var\(--black\); display: block; margin-bottom: 4px;">Download APK<\/strong>Latest release/,
-        `<strong style="color: var(--black); display: block; margin-bottom: 4px;">Latest APK v${version}</strong>${downloadHref}`,
-      );
+      .replace(/href="\/faranka\.apk"/g, `href="${downloadHref}"`);
 
     return (
       <main>

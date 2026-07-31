@@ -6,10 +6,8 @@
 <title>Faranka — SMS Finance Intelligence for Android</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,460;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="faranka.css" />
-
 </head>
 <body>
 
@@ -109,19 +107,20 @@
 </div>
 
 <!-- NAV -->
-<nav class="reveal">
+<nav id="siteNav" class="reveal">
   <a class="nav-logo" href="#">
-    <div class="nav-logo-icon">
+    <span class="nav-logo-icon">
       <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 12L8 4L13 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M5.5 9h5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
       </svg>
-    </div>
+    </span>
     Faranka
   </a>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
     <li><a href="#flow">How it works</a></li>
+    <li><a href="#release">Releases</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-actions">
@@ -134,176 +133,230 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero reveal delay-1">
-  <a class="hero-announce" href="/download" download="faranka.apk">
-    <span class="hero-announce-badge">
-      <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4"/></svg>
-      New
-    </span>
-    Version __VERSION__ now available for Android
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 4l3.5 3-3.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy reveal delay-1">
+      <a class="hero-announce" href="/download" download="faranka.apk">
+        <span class="hero-announce-badge">
+          <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4"/></svg>
+          New
+        </span>
+        Version __VERSION__ available for Android
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 4l3.5 3-3.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
 
-  <h1>Track<em> Every</em> Birr. Automatically.</h1>
+      <h1>Track every birr. <span class="h1-faint">Automatically.</span></h1>
 
-  <p class="hero-sub">
-What if the reason you enter during every mobile transaction automatically tracked your spending? Faranka parses your bank receipts, categorizes every transaction, and gives you real-time budgets, balances, and spending insights.  </p>
+      <p class="hero-sub">
+        What if every mobile transaction automatically tracked your spending? Faranka parses your bank receipts, categorizes every transaction, and gives you real-time budgets, balances, and spending insights.
+      </p>
 
-  <div class="hero-cta-row">
-    <a class="btn-hero-primary" href="/download" download="faranka.apk">
-      Download APK
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="btn-hero-secondary" href="#flow">See how it works</a>
-  </div>
+      <div class="hero-cta-row">
+        <a class="btn-dark" href="/download" download="faranka.apk">
+          Download APK
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-paper" href="#flow">See how it works</a>
+      </div>
 
-
-  <div class="hero-screenshots reveal delay-3">
-    <div class="real-app-image">
-      <picture>
-        <source srcset="/home-light.webp" type="image/webp" />
-        <img
-          src="/home-light.png"
-          alt="Faranka home screen in light mode showing budgets, balances, and spending pace"
-          width="842"
-          height="1867"
-          loading="lazy"
-        />
-      </picture>
+      <p class="hero-meta">No sign-up · 100% on-device · Awash &amp; CBE</p>
     </div>
-    <div class="real-app-image">
-      <picture>
-        <source srcset="/insights-light.webp" type="image/webp" />
-        <img
-          src="/insights-light.jpg"
-          alt="Faranka insights screen in light mode showing spending trends and analysis"
-          width="1080"
-          height="2400"
-          loading="lazy"
-        />
-      </picture>
+
+    <div class="hero-visual reveal delay-2">
+      <div class="hero-stack">
+        <figure class="real-app-image shot shot-back">
+          <picture>
+            <source srcset="/home-light.webp" type="image/webp" />
+            <img src="/home-light.png" alt="Faranka home screen in light mode showing budgets, balances, and spending pace" width="842" height="1867" loading="lazy" />
+          </picture>
+        </figure>
+        <figure class="real-app-image shot shot-front">
+          <picture>
+            <source srcset="/insights-light.webp" type="image/webp" />
+            <img src="/insights-light.jpg" alt="Faranka insights screen in light mode showing spending trends and analysis" width="1080" height="2400" loading="lazy" />
+          </picture>
+        </figure>
+      </div>
+
+      <div class="float-pill float-pill-1">
+        <span class="mono">Auto-categorized</span>
+        <strong>Suya Restaurant → Dining</strong>
+      </div>
+      <div class="float-pill float-pill-2">
+        <span class="mono">Budget pace</span>
+        <strong>Dining · on track</strong>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SIGNALS -->
 <div class="signals-strip reveal delay-3">
   <div class="signal-tile">
-    <strong>Awash &amp; CBE</strong>
-    <span>More banks coming</span>
+    <span class="mono">Banks</span>
+    <strong>Awash + CBE</strong>
+    <span class="mono">supported today</span>
   </div>
   <div class="signal-tile">
-    <strong>100% Private</strong>
-    <span>Data never leaves your phone</span>
+    <span class="mono">Privacy</span>
+    <strong>Local-first</strong>
+    <span class="mono">data stays on device</span>
   </div>
   <div class="signal-tile">
-    <strong>Auto-categorization</strong>
-    <span>Organized by reason, not by hand</span>
+    <span class="mono">Reliability</span>
+    <strong>Auto-resume</strong>
+    <span class="mono">offline parsing catches up</span>
   </div>
   <div class="signal-tile">
-    <strong>Live budgets</strong>
-    <span>Spending pace &amp; alerts</span>
+    <span class="mono">Updates</span>
+    <strong>OTA ready</strong>
+    <span class="mono">one JSON release source</span>
   </div>
 </div>
 
 <!-- FEATURES -->
 <section class="section" id="features">
-  <p class="section-eyebrow reveal">Why Faranka</p>
-  <h2 class="section-title reveal delay-1">Know where your money goes, automatically.</h2>
-  <p class="section-sub reveal delay-2">Faranka reads your bank messages and receipts, then organizes every transaction into a clear spending picture — no manual entry, no spreadsheets.</p>
+  <div class="section-head">
+    <p class="eyebrow reveal">Why Faranka</p>
+    <h2 class="section-title reveal delay-1">Know where your money goes, <span class="title-faint">automatically.</span></h2>
+    <p class="section-sub reveal delay-2">Supported bank SMS in, structured transactions out, then a dashboard that makes the data actionable through categories, receipts, budgets, and insights.</p>
+  </div>
 
   <div class="features-grid">
-    <div class="feature-tile reveal">
-      <h3>Messages import themselves</h3>
-      <p>Grant permission once, and Faranka automatically finds your bank messages. Every new SMS and receipt is detected and imported — even when the app is closed. There&rsquo;s nothing to fill in.</p>
+    <div class="feature-card reveal">
+      <span class="feature-chip">Parsing</span>
+      <h3>Awash and CBE SMS parsing</h3>
+      <p>The app reads supported bank messages, extracts transaction details, and turns them into structured spending records automatically.</p>
     </div>
-    <div class="feature-tile reveal delay-1">
-      <h3>Categories organize themselves</h3>
-      <p>Faranka looks at who you paid or received money from and assigns a category automatically. New payees create new categories as they appear, so your spending stays organized without any setup. You can always rename or merge categories to match your system.</p>
+    <div class="feature-card reveal delay-1">
+      <span class="feature-chip">Dashboard</span>
+      <h3>A dashboard that answers fast</h3>
+      <p>Balances, category breakdowns, recent transactions, and charts are built to answer the main question instantly: where did the money go?</p>
     </div>
-    <div class="feature-tile reveal delay-2">
-      <h3>Know your spending pace</h3>
-      <p>Set any budget and see instantly if you&rsquo;re spending too fast. Progress bars and pace warnings help you catch overspend before it becomes a problem.</p>
+    <div class="feature-card reveal delay-2">
+      <span class="feature-chip">Insights</span>
+      <h3>Budgets, insights, and receipts</h3>
+      <p>Review transactions, open receipt details, compare trends, and keep an eye on overspend without ever leaving the app.</p>
     </div>
-    <div class="feature-tile reveal delay-1">
-      <h3>Budget your way</h3>
-      <p>Set a single monthly cap, or create separate budgets for different expenses. Faranka adapts to however you like to track.</p>
+    <div class="feature-card reveal delay-1">
+      <span class="feature-chip">Privacy</span>
+      <h3>Local storage with Drift</h3>
+      <p>Imported data stays entirely on the device, which keeps the workflow fast and gives users a clear, honest privacy story.</p>
     </div>
-    <div class="feature-tile reveal delay-2">
-      <h3>Completely private</h3>
-      <p>Your financial data never leaves your phone. No accounts to create, no servers to trust. Faranka works entirely on your device.</p>
+    <div class="feature-card reveal delay-2">
+      <span class="feature-chip">Identity</span>
+      <h3>Google Sign-In and settings</h3>
+      <p>Identity, settings, and account management are already in the product flow, so the experience feels complete rather than experimental.</p>
     </div>
-    <div class="feature-tile reveal delay-3">
-      <h3>Import that never interrupts</h3>
-      <p>Import your bank data and go about your day. Faranka processes everything in the background — navigate away, close the app, it keeps going.</p>
+    <div class="feature-card reveal delay-3">
+      <span class="feature-chip">Updates</span>
+      <h3>Auto-update ready</h3>
+      <p>The site and the app share the same release metadata, so new Android builds can ship with a simple, reliable update path.</p>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="flow-section" id="flow">
-  <div class="section">
+  <div class="flow-inner">
     <div>
-      <p class="section-eyebrow reveal">User flow</p>
-      <h2 class="section-title reveal delay-1">From message import to insight, the path stays short.</h2>
-      <p class="section-sub reveal delay-2">Install, choose what to import, let it process, and start tracking. No account to create, no data to enter.</p>
+      <p class="eyebrow reveal">User flow</p>
+      <h2 class="section-title reveal delay-1">From message import to insight, <span class="title-faint">the path stays short.</span></h2>
+      <p class="section-sub reveal delay-2">Install, import, review, and keep up with releases. The onboarding story is obvious by design.</p>
 
       <div class="steps-list">
         <div class="step-item reveal">
           <span class="step-num">01</span>
           <div class="step-content">
-            <h3>Install the app</h3>
-            <p>Download the APK directly and install it on your Android device.</p>
+            <h3>Install the Android build</h3>
+            <p>Download the APK directly and make the first action obvious. No Play Store friction.</p>
           </div>
         </div>
         <div class="step-item reveal delay-1">
           <span class="step-num">02</span>
           <div class="step-content">
-            <h3>Grant SMS access and choose what to import</h3>
-            <p>Grant SMS permission once. Faranka shows how many messages are available per bank, then lets you pick how many to import.</p>
+            <h3>Grant SMS access and import</h3>
+            <p>Faranka scans supported messages, detects banks, and structures transactions automatically.</p>
           </div>
         </div>
         <div class="step-item reveal delay-2">
           <span class="step-num">03</span>
           <div class="step-content">
-            <h3>Watch it process in real time</h3>
-            <p>Live progress bars show import status for each bank. Faranka works in the background — navigate away and it keeps going.</p>
+            <h3>Review categories and trends</h3>
+            <p>Land in a dashboard that highlights balances, spending patterns, and problem categories.</p>
           </div>
         </div>
         <div class="step-item reveal delay-3">
           <span class="step-num">04</span>
           <div class="step-content">
-            <h3>Track, organize, and stay on top</h3>
-            <p>Land on your dashboard with budgets, spending pace, and transactions automatically categorized by who you paid. Tap any transaction for full receipt details, edit categories to match your system, and get weekly summaries.</p>
+            <h3>Keep the app current</h3>
+            <p>Release metadata from this site powers OTA checks, so the product stays easy to update.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- App screenshots -->
     <div class="flow-screenshots reveal delay-2">
-      <div class="real-app-image">
+      <figure class="real-app-image">
         <picture>
           <source srcset="/insights-dark.webp" type="image/webp" />
-          <img
-            src="/insights-dark.jpg"
-            alt="Faranka insights screen in dark mode showing spending trends"
-            width="1080"
-            height="2400"
-            loading="lazy"
-          />
+          <img src="/insights-dark.jpg" alt="Faranka insights screen in dark mode showing spending trends" width="1080" height="2400" loading="lazy" />
         </picture>
-      </div>
-      <div class="real-app-image">
+      </figure>
+      <figure class="real-app-image">
         <picture>
           <source srcset="/transactions-light.webp" type="image/webp" />
-          <img
-            src="/transactions-light.png"
-            alt="Faranka transactions screen in light mode showing spending history"
-            width="921"
-            height="1707"
-            loading="lazy"
-          />
+          <img src="/transactions-light.png" alt="Faranka transactions screen in light mode showing spending history" width="921" height="1707" loading="lazy" />
         </picture>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RELEASE -->
+<section class="section" id="release">
+  <div class="section-head">
+    <p class="eyebrow reveal">Current release</p>
+    <h2 class="section-title reveal delay-1">Keep the APK and the website <span class="title-faint">in sync.</span></h2>
+    <p class="section-sub reveal delay-2">The download button and release details are driven by the same JSON file the app uses for OTA checks, so the marketing page stays aligned with what is actually shipping.</p>
+  </div>
+
+  <div class="release-grid">
+    <div class="reveal">
+      <div class="release-meta-grid">
+        <div class="release-meta-tile">
+          <span class="mono">Version</span>
+          <strong>__VERSION__</strong>
+        </div>
+        <div class="release-meta-tile">
+          <span class="mono">Banks</span>
+          <strong>Awash + CBE</strong>
+        </div>
+        <div class="release-meta-tile">
+          <span class="mono">Delivery</span>
+          <strong>Direct APK</strong>
+        </div>
+        <div class="release-meta-tile">
+          <span class="mono">Privacy</span>
+          <strong>On-device</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="release-card reveal delay-2">
+      <a class="release-download" href="/download" download="faranka.apk">
+        <strong>Download APK</strong>
+        <span class="mono">v__VERSION__ · latest release</span>
+      </a>
+      <div class="release-notes">
+        <span class="mono">Release notes</span>
+        <ul>
+          <li>Google Sign-In and profile settings now in the product flow</li>
+          <li>Auto-update support via shared release JSON</li>
+          <li>Awash and CBE SMS parsing with structured transaction output</li>
+          <li>Local-first storage using Drift keeps data on-device</li>
+          <li>Dashboard with balances, categories, receipts, and trend charts</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -311,36 +364,45 @@ What if the reason you enter during every mobile transaction automatically track
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">
-  <p class="section-eyebrow reveal">FAQ</p>
-  <h2 class="section-title reveal delay-1">Common questions</h2>
-  <p class="section-sub reveal delay-2">Everything you need to know about Faranka.</p>
+  <div class="section-head">
+    <p class="eyebrow reveal">FAQ</p>
+    <h2 class="section-title reveal delay-1">Common questions</h2>
+    <p class="section-sub reveal delay-2">Everything you need to know about Faranka.</p>
+  </div>
 
   <div class="faq-list">
-    <div class="faq-item reveal">
+    <div class="faq-card reveal">
+      <span class="mono">Q.01</span>
       <h3>What is Faranka?</h3>
       <p>Faranka is an Android app that reads your bank SMS messages and receipts, then automatically organizes them into a clear picture of your spending — budgets, categories, and trends, all on your device.</p>
     </div>
-    <div class="faq-item reveal delay-1">
+    <div class="faq-card reveal delay-1">
+      <span class="mono">Q.02</span>
       <h3>Which banks are supported?</h3>
       <p>Faranka currently supports Awash Bank and Commercial Bank of Ethiopia (CBE), with more banks coming.</p>
     </div>
-    <div class="faq-item reveal delay-2">
+    <div class="faq-card reveal delay-2">
+      <span class="mono">Q.03</span>
       <h3>Is my data stored in the cloud?</h3>
       <p>No. Your financial data never leaves your phone. There are no accounts to create and no servers to trust. Faranka works entirely on your device.</p>
     </div>
-    <div class="faq-item reveal delay-1">
+    <div class="faq-card reveal delay-1">
+      <span class="mono">Q.04</span>
       <h3>How do I get started?</h3>
       <p>Download the APK, install it on your Android device, and grant SMS permission once. Faranka will find your bank messages and let you choose how many to import.</p>
     </div>
-    <div class="faq-item reveal delay-2">
+    <div class="faq-card reveal delay-2">
+      <span class="mono">Q.05</span>
       <h3>Can I edit categories?</h3>
       <p>Yes. Faranka automatically assigns categories based on who you paid, but you can rename, merge, or create new ones at any time to match your system.</p>
     </div>
-    <div class="faq-item reveal delay-3">
+    <div class="faq-card reveal delay-3">
+      <span class="mono">Q.06</span>
       <h3>What does it mean Faranka automatically categorizes?</h3>
-      <p>Faranka extracts a <strong>reason</strong> from every bank message — the name of the person, business, or service you paid. This reason field is how the app organizes your spending. Every transaction is automatically categorized based on it: Faranka compares the reason against categories it has seen before and assigns a match, or creates a new category if none exists. No rules to set up, no manual sorting.</p>
+      <p>Faranka extracts a <strong>reason</strong> from every bank message — the name of the person, business, or service you paid. Every transaction is automatically categorized based on it: Faranka compares the reason against categories it has seen before and assigns a match, or creates a new category if none exists.</p>
     </div>
-    <div class="faq-item reveal delay-3">
+    <div class="faq-card reveal delay-3">
+      <span class="mono">Q.07</span>
       <h3>What does each transaction show?</h3>
       <p>Every transaction shows the amount, date, counterparty name, bank, and category. Tap any transaction to see the full receipt details, edit the category, and view the original SMS.</p>
     </div>
@@ -351,35 +413,53 @@ What if the reason you enter during every mobile transaction automatically track
 <div class="support-strip reveal delay-3">
   <p class="support-label">Currently supporting</p>
   <div class="support-banks">
-    <span class="bank-pill">
+    <div class="bank-tile">
       <picture>
         <source srcset="/awash-logo.webp" type="image/webp" />
         <img src="/awash-logo.png" alt="Awash Bank" class="bank-logo" />
       </picture>
-    </span>
-    <span class="bank-pill">
+      <span>Awash Bank</span>
+    </div>
+    <div class="bank-tile">
       <picture>
         <source srcset="/cbe-logo.webp" type="image/webp" />
         <img src="/cbe-logo.png" alt="Commercial Bank of Ethiopia" class="bank-logo" />
       </picture>
-    </span>
+      <span>Commercial Bank of Ethiopia</span>
+    </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer class="reveal">
-  <div class="footer-brand">
-    <strong>Faranka</strong>
-    <p>SMS finance intelligence for Android</p>
+  <div class="footer-cta">
+    <h2>Your money, <span class="title-faint">on autopilot.</span></h2>
+    <a class="btn-dark" href="/download" download="faranka.apk">
+      Download APK
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
-  <div class="footer-links">
-    <a href="mailto:support@faranka.com">Support</a>
-    <a href="/download" download="faranka.apk">Download</a>
-    <a href="#faq">FAQ</a>
-    <a href="#features">Features</a>
-  </div>
-  <div class="footer-copy">
-    <p>&copy; 2026 Faranka. All rights reserved.</p>
+
+  <div class="footer-bottom">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">
+        <span class="nav-logo-icon">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12L8 4L13 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5.5 9h5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        Faranka
+      </a>
+      <p>SMS finance intelligence for Android</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:support@faranka.com">Support</a>
+      <a href="/download" download="faranka.apk">Download</a>
+      <a href="#faq">FAQ</a>
+      <a href="#features">Features</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Faranka · All rights reserved</p>
   </div>
 </footer>
 
