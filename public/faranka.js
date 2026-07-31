@@ -1,32 +1,38 @@
-// Intersection observer for staggered reveals
-const els = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.animationPlayState = 'running';
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-els.forEach(el => {
-  el.style.animationPlayState = 'paused';
-  io.observe(el);
-});
-
-// Nav scroll state (transparent over hero -> paper glass)
-const nav = document.getElementById('siteNav');
+// Nav scroll state (paper glass bar, shadow once scrolled)
 function updateNav() {
+  const nav = document.getElementById('siteNav');
   if (!nav) return;
   nav.classList.toggle('scrolled', window.scrollY > 10);
 }
-updateNav();
 window.addEventListener('scroll', updateNav, { passive: true });
 
-// Download handler with error management
+// Intersection observer for staggered reveals
+let io = null;
+function setupReveals() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  if (io) io.disconnect();
+  io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animationPlayState = 'running';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  els.forEach(el => {
+    el.style.animationPlayState = 'paused';
+    io.observe(el);
+  });
+}
+
+// Download handler with error management (delegated so it works whenever links exist)
 function handleDownloadClick(e) {
+  const link = e.target.closest('a[href="/download"]');
+  if (!link) return;
   e.preventDefault();
-  const downloadUrl = e.currentTarget.getAttribute('href');
+  const downloadUrl = link.getAttribute('href');
   const errorDialog = document.getElementById('downloadError');
 
   fetch(downloadUrl)
@@ -51,16 +57,26 @@ function handleDownloadClick(e) {
     })
     .catch(error => {
       console.error('Download error:', error);
-      document.getElementById('errorMessage').textContent =
+      const messageEl = document.getElementById('errorMessage');
+      if (messageEl) messageEl.textContent =
         error.message || 'Failed to download APK. Please check your connection and try again.';
-      errorDialog.classList.add('show');
+      if (errorDialog) errorDialog.classList.add('show');
     });
 }
+document.addEventListener('click', handleDownloadClick);
 
-// Attach click handlers to all download buttons
-document.addEventListener('DOMContentLoaded', function() {
-  const downloadLinks = document.querySelectorAll('a[href="/download"]');
-  downloadLinks.forEach(link => {
-    link.addEventListener('click', handleDownloadClick);
-  });
+// Wait for the client-injected content before binding DOM-dependent logic
+function init() {
+  updateNav();
+  setupReveals();
+}
+
+const observer = new MutationObserver(() => {
+  if (document.getElementById('siteNav') && document.querySelector('.reveal')) {
+    observer.disconnect();
+    init();
+  }
 });
+observer.observe(document.body, { childList: true, subtree: true });
+
+if (document.getElementById('siteNav')) init();
