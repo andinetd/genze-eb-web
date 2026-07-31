@@ -21,7 +21,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
   background: var(--paper);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
@@ -30,7 +30,7 @@ body {
 }
 
 .mono {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 0.7rem;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -252,7 +252,7 @@ nav.scrolled {
 .btn-paper svg { width: 14px; height: 14px; }
 
 .hero-meta {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 0.7rem;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -341,7 +341,7 @@ nav.scrolled {
 .section-head { max-width: 640px; margin-bottom: 16px; }
 
 .eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 0.7rem;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -390,7 +390,7 @@ nav.scrolled {
 
 .feature-chip {
   display: inline-block;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 0.66rem;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -456,7 +456,7 @@ nav.scrolled {
   min-width: 42px;
   height: 34px;
   border-radius: 8px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 0.75rem;
   color: var(--green);
   background: var(--paper-raised);
@@ -619,7 +619,7 @@ nav.scrolled {
 }
 
 .support-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 0.7rem;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -717,7 +717,7 @@ footer {
 .footer-links a:hover { color: var(--ink); }
 
 .footer-copy {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 0.68rem;
   letter-spacing: .06em;
   text-transform: uppercase;

@@ -19,8 +19,61 @@ export default async function Home() {
       .replace(/__VERSION__/g, version)
       .replace(/href="\/faranka\.apk"/g, `href="${downloadHref}"`);
 
+    const siteUrl = "https://faranka.app";
+    const description =
+      "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, balances, and spending insights — all on your device, no sign-up needed.";
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${siteUrl}/#organization`,
+          name: "Faranka",
+          url: siteUrl,
+          description,
+          logo: {
+            "@type": "ImageObject",
+            url: `${siteUrl}/og-image.png`,
+            width: 1200,
+            height: 630,
+          },
+        },
+        {
+          "@type": "WebApplication",
+          "@id": `${siteUrl}/#webapp`,
+          name: "Faranka",
+          url: siteUrl,
+          description,
+          applicationCategory: "FinanceApplication",
+          operatingSystem: "Android",
+          inLanguage: "en",
+          softwareVersion: version,
+          downloadUrl: `${siteUrl}/download`,
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "ETB",
+          },
+          featureList: [
+            "Automatic SMS import",
+            "Transaction categorization",
+            "Real-time budgets and spending pace",
+            "Weekly spending summaries",
+            "100% offline — no data leaves your phone",
+          ],
+        },
+      ],
+    };
+
     return (
       <main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <link rel="preload" as="image" href="/insights-light.webp" fetchpriority="high" />
         <style dangerouslySetInnerHTML={{ __html: styles }} />
         {/* Render body only on client to avoid hydration mismatch */}
         <PreservedHtmlClient html={hydratedBody} containerId="preserved-root" />

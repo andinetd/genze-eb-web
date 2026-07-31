@@ -1,17 +1,16 @@
-import { DM_Sans, Instrument_Serif } from "next/font/google";
+import { DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-
-const displayFont = Instrument_Serif({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "400"],
-  style: ["normal", "italic"],
-});
 
 const bodyFont = DM_Sans({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["300", "400", "500"],
+});
+
+const monoFont = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500"],
 });
 
 const siteUrl = "https://faranka.app";
@@ -46,11 +45,23 @@ export const metadata = {
     title: "Faranka — Track Every Birr. Automatically.",
     description:
       "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — no account, no data upload.",
-    images: ["/og-image.png"],
+    images: [
+      {
+        url: "/og-image.png",
+        alt: "Faranka — SMS Finance Intelligence for Android",
+      },
+    ],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/og-image.png", type: "image/png" },
+    ],
+    apple: "/og-image.png",
   },
   other: {
     keywords:
@@ -58,10 +69,16 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f5f5f2",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${displayFont.variable} ${bodyFont.variable}`}>
+      <body className={`${bodyFont.variable} ${monoFont.variable}`}>
         {children}
       </body>
     </html>
