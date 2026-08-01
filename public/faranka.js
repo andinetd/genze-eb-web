@@ -27,43 +27,8 @@ function setupReveals() {
   });
 }
 
-// Download handler with error management (delegated so it works whenever links exist)
-function handleDownloadClick(e) {
-  const link = e.target.closest('a[href="/download"]');
-  if (!link) return;
-  e.preventDefault();
-  const downloadUrl = link.getAttribute('href');
-  const errorDialog = document.getElementById('downloadError');
-
-  fetch(downloadUrl)
-    .then(response => {
-      if (!response.ok) {
-        return response.json().then(data => {
-          throw new Error(data.error || 'Download failed');
-        }).catch(err => {
-          throw new Error(err.message || 'Download failed with error');
-        });
-      }
-      return response.blob().then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'faranka.apk';
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        a.remove();
-      });
-    })
-    .catch(error => {
-      console.error('Download error:', error);
-      const messageEl = document.getElementById('errorMessage');
-      if (messageEl) messageEl.textContent =
-        error.message || 'Failed to download APK. Please check your connection and try again.';
-      if (errorDialog) errorDialog.classList.add('show');
-    });
-}
-document.addEventListener('click', handleDownloadClick);
+// Download buttons navigate natively to /download, which redirects to the
+// hosted APK. No client-side interception needed.
 
 // Wait for the client-injected content before binding DOM-dependent logic
 function init() {
