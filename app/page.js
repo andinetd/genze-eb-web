@@ -73,7 +73,6 @@ export default async function Home() {
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        <link rel="preload" as="image" href="/insights-light.webp" fetchpriority="high" />
         <style dangerouslySetInnerHTML={{ __html: styles }} />
         {/* Render body only on client to avoid hydration mismatch */}
         <PreservedHtmlClient html={hydratedBody} containerId="preserved-root" />
