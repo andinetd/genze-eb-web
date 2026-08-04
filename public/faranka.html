@@ -10,7 +10,7 @@
 <link rel="icon" href="/icon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,460;9..40,500;9..40,600;9..40,700;9..40,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,460;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="faranka.css" />
 </head>
 <body>
@@ -67,7 +67,7 @@
       "name": "Which banks are supported?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Faranka currently supports Awash Bank, Commercial Bank of Ethiopia (CBE), and Telebirr (Ethio telecom) — with more banks coming."
+        "text": "Faranka currently supports Awash Bank and Commercial Bank of Ethiopia (CBE), with more banks coming."
       }
     },
     {
@@ -116,7 +116,7 @@
       "@type": "HowToStep",
       "position": 2,
       "name": "Grant SMS access and import",
-      "text": "Faranka scans supported bank messages, detects Awash Bank, CBE, and Telebirr, and structures transactions automatically."
+      "text": "Faranka scans supported bank messages, detects Awash Bank and CBE, and structures transactions automatically."
     },
     {
       "@type": "HowToStep",
@@ -152,7 +152,7 @@
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-actions">
-    <a class="btn-ghost" href="mailto:andinetderejem@gmail.com">Support</a>
+    <a class="btn-ghost" href="mailto:support@faranka.com">Support</a>
     <a class="btn-primary" href="/download" download="faranka.apk">
       Download APK
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -161,37 +161,60 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-  <canvas id="powder-canvas" aria-hidden="true"></canvas>
-  <div class="hero-copy">
-    <a class="hero-announce" href="/download" download="faranka.apk">
-      <span class="hero-announce-badge">
-        <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4"/></svg>
-        New
-      </span>
-      Version __VERSION__ available for Android
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 4l3.5 3-3.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-
-    <h1 class="splash-title">
-      <span class="splash-line"><span class="splash-line-inner">Track every</span></span>
-      <span class="splash-line"><span class="splash-line-inner splash-strong">Frank.<span class="splash-dot" aria-hidden="true"></span></span></span>
-      <span class="splash-line"><span class="splash-line-inner splash-faint">Automatically.</span></span>
-    </h1>
-
-    <p class="hero-sub">
-      What if the reason field you enter during mobile transactions automatically tracked your spending? Faranka parses your bank receipts, categorizes every transaction, and gives you real-time budgets, balances, and spending insights.
-    </p>
-
-    <div class="hero-cta-row">
-      <a class="btn-dark" href="/download" download="faranka.apk">
-        Download APK
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy reveal delay-1">
+      <a class="hero-announce" href="/download" download="faranka.apk">
+        <span class="hero-announce-badge">
+          <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4"/></svg>
+          New
+        </span>
+        Version __VERSION__ available for Android
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 4l3.5 3-3.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a class="btn-paper" href="#flow">See how it works</a>
+
+      <h1>Track every Frank. <span class="h1-faint">Automatically.</span></h1>
+
+      <p class="hero-sub">
+        What if the reason field you enter during mobile transactions automatically tracked your spending? Faranka parses your bank receipts, categorizes every transaction, and gives you real-time budgets, balances, and spending insights.
+      </p>
+
+      <div class="hero-cta-row">
+        <a class="btn-dark" href="/download" download="faranka.apk">
+          Download APK
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-paper" href="#flow">See how it works</a>
+      </div>
+
+      <p class="hero-meta">No sign-up · 100% on-device · Awash &amp; CBE</p>
     </div>
 
-    <p class="hero-meta">No sign-up · 100% on-device · Awash, CBE &amp; Telebirr</p>
+    <div class="hero-visual reveal delay-2">
+      <div class="hero-stack">
+        <figure class="real-app-image shot shot-back">
+          <picture>
+            <source srcset="/home-light.webp" type="image/webp" />
+            <img src="/home-light.png" alt="Faranka home screen in light mode showing budgets, balances, and spending pace" width="842" height="1867" loading="lazy" />
+          </picture>
+        </figure>
+        <figure class="real-app-image shot shot-front">
+          <picture>
+            <source srcset="/insights-light.webp" type="image/webp" />
+            <img src="/insights-light.jpg" alt="Faranka insights screen in light mode showing spending trends and analysis" width="1080" height="2400" loading="eager" fetchpriority="high" />
+          </picture>
+        </figure>
+      </div>
+
+      <div class="float-pill float-pill-1">
+        <span class="mono">Auto-categorized</span>
+        <strong>Suya Restaurant → Dining</strong>
+      </div>
+      <div class="float-pill float-pill-2">
+        <span class="mono">Budget pace</span>
+        <strong>Dining · on track</strong>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -199,7 +222,7 @@
 <div class="signals-strip reveal delay-3">
   <div class="signal-tile">
     <span class="mono">Banks</span>
-    <strong>Awash + CBE + Telebirr</strong>
+    <strong>Awash + CBE</strong>
     <span class="mono">supported today</span>
   </div>
   <div class="signal-tile">
@@ -230,7 +253,7 @@
   <div class="features-grid">
     <div class="feature-card reveal">
       <span class="feature-chip">Parsing</span>
-      <h3>Awash, CBE, and Telebirr SMS parsing</h3>
+      <h3>Awash and CBE SMS parsing</h3>
       <p>The app reads supported bank messages, extracts transaction details, and turns them into structured spending records automatically.</p>
     </div>
     <div class="feature-card reveal delay-1">
@@ -301,19 +324,7 @@
       </div>
     </div>
 
-    <div class="screens-gallery reveal delay-2">
-      <figure class="real-app-image">
-        <picture>
-          <source srcset="/home-light.webp" type="image/webp" />
-          <img src="/home-light.png" alt="Faranka home screen in light mode showing budgets, balances, and spending pace" width="842" height="1867" loading="lazy" />
-        </picture>
-      </figure>
-      <figure class="real-app-image">
-        <picture>
-          <source srcset="/insights-light.webp" type="image/webp" />
-          <img src="/insights-light.jpg" alt="Faranka insights screen in light mode showing spending trends and analysis" width="1080" height="2400" loading="lazy" />
-        </picture>
-      </figure>
+    <div class="flow-screenshots reveal delay-2">
       <figure class="real-app-image">
         <picture>
           <source srcset="/insights-dark.webp" type="image/webp" />
@@ -347,7 +358,7 @@
         </div>
         <div class="release-meta-tile">
           <span class="mono">Banks</span>
-          <strong>Awash + CBE + Telebirr</strong>
+          <strong>Awash + CBE</strong>
         </div>
         <div class="release-meta-tile">
           <span class="mono">Delivery</span>
@@ -370,7 +381,7 @@
         <ul>
           <li>Google Sign-In and profile settings now in the product flow</li>
           <li>Auto-update support via shared release JSON</li>
-          <li>Awash, CBE and Telebirr SMS parsing with structured transaction output</li>
+          <li>Awash and CBE SMS parsing with structured transaction output</li>
           <li>Local-first storage using Drift keeps data on-device</li>
           <li>Dashboard with balances, categories, receipts, and trend charts</li>
         </ul>
@@ -396,7 +407,7 @@
     <div class="faq-card reveal delay-1">
       <span class="mono">Q.02</span>
       <h3>Which banks are supported?</h3>
-      <p>Faranka currently supports Awash Bank, Commercial Bank of Ethiopia (CBE), and Telebirr (Ethio telecom) — with more banks coming.</p>
+      <p>Faranka currently supports Awash Bank and Commercial Bank of Ethiopia (CBE), with more banks coming.</p>
     </div>
     <div class="faq-card reveal delay-2">
       <span class="mono">Q.03</span>
@@ -444,15 +455,7 @@
       </picture>
       <span>Commercial Bank of Ethiopia</span>
     </div>
-    <div class="bank-tile">
-      <picture>
-        <source srcset="/telebirr-logo.webp" type="image/webp" />
-        <img src="/telebirr-logo.png" alt="Telebirr" class="bank-logo" />
-      </picture>
-      <span>Telebirr (Ethio telecom)</span>
-    </div>
   </div>
-  <p class="support-more">…and more banks coming.</p>
 </div>
 
 <!-- FOOTER -->
@@ -479,7 +482,7 @@
       <p>SMS finance intelligence for Android</p>
     </div>
     <div class="footer-links">
-      <a href="mailto:andinetderejem@gmail.com">Support</a>
+      <a href="mailto:support@faranka.com">Support</a>
       <a href="/download" download="faranka.apk">Download</a>
       <a href="#faq">FAQ</a>
       <a href="#features">Features</a>

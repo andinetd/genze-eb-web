@@ -4,7 +4,7 @@ import "./globals.css";
 const bodyFont = DM_Sans({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "700", "800"],
+  weight: ["300", "400", "500"],
 });
 
 const monoFont = IBM_Plex_Mono({
