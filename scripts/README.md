@@ -12,8 +12,8 @@ Publishes a locally built release to the website, mirroring what the CI workflow
    - Version code (build number, e.g., `84`)
 2. Locates the freshly built arm64 APK in `../genzeb/build/app/outputs/flutter-apk/`
 3. Copies it to `public/faranka.apk`
-4. Refuses to run if the published `version_code` in `update.json` is not older
-   than the pubspec build number
+4. Refuses to run if the published `version_code` in `update.json` is newer than
+   the pubspec build number (equal is allowed, to repair/re-publish a version)
 5. Rewrites `update.json` with the canonical schema
 6. Commits and pushes to `genze-eb-web` so Vercel redeploys
 
@@ -25,7 +25,7 @@ Bump it before releasing, then:
 1. Build the APK in genzeb:
    ```bash
    cd ../genzeb
-   flutter build apk --release --target-platform android-arm64 --split-per-abi
+   flutter build apk --release --target-platform android-arm64
    ```
 
 2. Publish the release to the website:

@@ -47,6 +47,7 @@ function parsePubspec(content) {
 
 function findBuiltApk() {
   const candidates = [
+    path.join(genzebPath, "build", "app", "outputs", "flutter-apk", "app-release.apk"),
     path.join(
       genzebPath,
       "build",
@@ -55,7 +56,6 @@ function findBuiltApk() {
       "flutter-apk",
       "app-arm64-v8a-release.apk",
     ),
-    path.join(genzebPath, "build", "app", "outputs", "flutter-apk", "app-release.apk"),
   ];
 
   for (const candidate of candidates) {
@@ -65,7 +65,7 @@ function findBuiltApk() {
   throw new Error(
     "No release APK found. Build it first:\n" +
       "  cd ../genzeb\n" +
-      "  flutter build apk --release --target-platform android-arm64 --split-per-abi",
+      "  flutter build apk --release --target-platform android-arm64",
   );
 }
 
@@ -86,10 +86,15 @@ function updateRelease() {
       const existing = JSON.parse(fs.readFileSync(updateJsonPath, "utf-8"));
       if (
         typeof existing.version_code === "number" &&
-        existing.version_code >= versionData.version_code
+        existing.version_code > versionData.version_code
       ) {
         throw new Error(
-          `Published version_code ${existing.version_code} is not older than pubspec ${versionData.version_code}. Bump pubspec.yaml first.`,
+          `Published version_code ${existing.version_code} is newer than pubspec ${versionData.version_code}. Bump pubspec.yaml first.`,
+        );
+      }
+      if (existing.version_code === versionData.version_code) {
+        console.log(
+          `ℹ️ Re-publishing same version_code ${versionData.version_code} to repair/fix this version.`,
         );
       }
     }
