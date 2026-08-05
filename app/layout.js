@@ -57,11 +57,8 @@ export const metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/og-image.png", type: "image/png" },
-    ],
-    apple: "/og-image.png",
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: "/apple-touch-icon.png",
   },
   other: {
     keywords:
