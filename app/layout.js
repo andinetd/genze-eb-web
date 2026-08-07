@@ -1,16 +1,26 @@
-import { DM_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const bodyFont = DM_Sans({
-  subsets: ["latin"],
+const bodyFont = localFont({
+  src: "./fonts/InterVariable.woff2",
   variable: "--font-body",
-  weight: ["300", "400", "500"],
+  display: "swap",
+  weight: "100 900",
 });
 
-const monoFont = IBM_Plex_Mono({
-  subsets: ["latin"],
+const monoFont = localFont({
+  src: [
+    { path: "./fonts/IBMPlexMono-400.woff2", weight: "400" },
+    { path: "./fonts/IBMPlexMono-500.woff2", weight: "500" },
+  ],
   variable: "--font-mono",
-  weight: ["400", "500"],
+  display: "swap",
+});
+
+const displayFont = localFont({
+  src: "./fonts/DepartureMono-Regular.woff2",
+  variable: "--font-display",
+  display: "swap",
 });
 
 const siteUrl = "https://faranka.app";
@@ -69,13 +79,13 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f5f5f2",
+  themeColor: "#f3f1e9",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${bodyFont.variable} ${monoFont.variable}`}>
+      <body className={`${bodyFont.variable} ${monoFont.variable} ${displayFont.variable}`}>
         {children}
       </body>
     </html>

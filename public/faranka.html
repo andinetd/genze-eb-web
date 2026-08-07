@@ -10,7 +10,7 @@
 <link rel="icon" href="/icon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,460;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="faranka.css" />
 </head>
 <body>
@@ -134,36 +134,66 @@
 }
 </script>
 
-<!-- NAV -->
-<nav id="siteNav" class="reveal">
-  <a class="nav-logo" href="#">
-    <span class="nav-logo-icon">
-      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 12L8 4L13 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M5.5 9h5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </span>
-    Faranka
-  </a>
-  <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#flow">How it works</a></li>
-    <li><a href="#release">Releases</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <div class="nav-actions">
-    <a class="btn-ghost" href="mailto:support@faranka.com">Support</a>
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="nav-logo" href="#">
+      <span class="nav-logo-icon">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12L8 4L13 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5.5 9h5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      Faranka
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="#flow">How it works</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="#release">Releases</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn-ghost" href="mailto:support@faranka.com">Support</a>
+      <a class="btn-primary" href="/download" download="faranka.apk">
+        Download APK
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Features</a>
+    <a href="#flow">How it works</a>
+    <a href="#release">Releases</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:support@faranka.com">Support</a>
     <a class="btn-primary" href="/download" download="faranka.apk">
       Download APK
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
-</nav>
+</header>
 
 <!-- HERO -->
-<section class="hero">
+<div class="site-hero" id="site-hero">
+  <div class="hero-bg" aria-hidden="true">
+    <img class="hero-bg-img" src="/hero.jpg" alt="" fetchpriority="high" />
+    <div class="hero-bg-orb orb-1"></div>
+    <div class="hero-bg-orb orb-2"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-scroll-fade"></div>
+  </div>
+
   <div class="hero-inner">
-    <div class="hero-copy reveal delay-1">
+    <div class="hero-copy">
       <a class="hero-announce" href="/download" download="faranka.apk">
         <span class="hero-announce-badge">
           <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4"/></svg>
@@ -173,7 +203,10 @@
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 4l3.5 3-3.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
 
-      <h1>Track every Frank. <span class="h1-faint">Automatically.</span></h1>
+      <h1 class="hero-title">
+        <span class="hero-line">Track every Frank.</span>
+        <span class="hero-line hero-line-faint">Automatically.</span>
+      </h1>
 
       <p class="hero-sub">
         What if the reason field you enter during mobile transactions automatically tracked your spending? Faranka parses your bank receipts, categorizes every transaction, and gives you real-time budgets, balances, and spending insights.
@@ -184,42 +217,213 @@
           Download APK
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="btn-paper" href="#flow">See how it works</a>
+        <a class="btn-glass" href="#flow">See how it works</a>
       </div>
 
       <p class="hero-meta">No sign-up · 100% on-device · Awash &amp; CBE</p>
     </div>
 
-    <div class="hero-visual reveal delay-2">
-      <div class="hero-stack">
-        <figure class="real-app-image shot shot-back">
-          <picture>
-            <source srcset="/home-light.webp" type="image/webp" />
-            <img src="/home-light.png" alt="Faranka home screen in light mode showing budgets, balances, and spending pace" width="842" height="1867" loading="lazy" />
-          </picture>
-        </figure>
-        <figure class="real-app-image shot shot-front">
-          <picture>
-            <source srcset="/insights-light.webp" type="image/webp" />
-            <img src="/insights-light.jpg" alt="Faranka insights screen in light mode showing spending trends and analysis" width="1080" height="2400" loading="eager" fetchpriority="high" />
-          </picture>
-        </figure>
-      </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="dust-splash">
+        <svg viewBox="0 0 760 900" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="gmid"><stop offset="0" stop-color="#28a4e8"/><stop offset=".55" stop-color="#0b95df"/><stop offset="1" stop-color="#0b95df" stop-opacity="0"/></radialGradient>
+            <radialGradient id="glight"><stop offset="0" stop-color="#cfeaf9"/><stop offset=".55" stop-color="#9fd7f1"/><stop offset="1" stop-color="#9fd7f1" stop-opacity="0"/></radialGradient>
+            <radialGradient id="gdark"><stop offset="0" stop-color="#2a9b8f"/><stop offset=".55" stop-color="#1b6a63"/><stop offset="1" stop-color="#1b6a63" stop-opacity="0"/></radialGradient>
+            <radialGradient id="gink"><stop offset="0" stop-color="#3d4240"/><stop offset=".55" stop-color="#232a28"/><stop offset="1" stop-color="#232a28" stop-opacity="0"/></radialGradient>
+            <radialGradient id="gcore"><stop offset="0" stop-color="#ffffff"/><stop offset=".3" stop-color="#d8edfb"/><stop offset=".7" stop-color="#28a4e8"/><stop offset="1" stop-color="#0b95df" stop-opacity="0"/></radialGradient>
+            <linearGradient id="gstreak" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3fa9e8" stop-opacity=".85"/><stop offset=".7" stop-color="#0b95df" stop-opacity=".35"/><stop offset="1" stop-color="#0b95df" stop-opacity="0"/></linearGradient>
+            <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+            <filter id="coreglow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="16"/></filter>
+            <symbol id="p-m"><circle cx="0" cy="0" r="5" fill="url(#gmid)"/></symbol>
+            <symbol id="p-l"><circle cx="0" cy="0" r="4" fill="url(#glight)"/></symbol>
+            <symbol id="p-d"><circle cx="0" cy="0" r="6" fill="url(#gdark)"/></symbol>
+            <symbol id="p-k"><circle cx="0" cy="0" r="4.5" fill="url(#gink)"/></symbol>
+            <symbol id="p-s"><circle cx="0" cy="0" r="2" fill="url(#gink)"/></symbol>
+            <symbol id="p-sg"><circle cx="0" cy="0" r="2" fill="url(#glight)"/></symbol>
+            <symbol id="spark"><path d="M0 -7 L1.6 -1.6 L7 0 L1.6 1.6 L0 7 L-1.6 1.6 L-7 0 L-1.6 -1.6 Z" fill="url(#gmid)"/></symbol>
+          </defs>
 
-      <div class="float-pill float-pill-1">
-        <span class="mono">Auto-categorized</span>
-        <strong>Suya Restaurant → Dining</strong>
-      </div>
-      <div class="float-pill float-pill-2">
-        <span class="mono">Budget pace</span>
-        <strong>Dining · on track</strong>
+          <g id="orbits">
+            <circle cx="380" cy="430" r="160" stroke="#3fa9e8" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 10" fill="none"/>
+            <circle cx="380" cy="430" r="240" stroke="#86efac" stroke-opacity=".16" stroke-width="1" stroke-dasharray="1 12" fill="none"/>
+            <path d="M380 120 A310 310 0 0 1 690 440" stroke="#86efac" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="6 14" stroke-linecap="round" fill="none"/>
+          </g>
+      <g id="streaks" transform="translate(380 430)">
+        <line x2="256" transform="rotate(-5.5)" stroke="#262323" stroke-width="1.90" stroke-linecap="round" opacity="0.28"/>
+        <line x2="242" transform="rotate(10.7)" stroke="url(#gstreak)" stroke-width="1.40" stroke-linecap="round" opacity="0.54"/>
+        <line x2="85" transform="rotate(44.6)" stroke="url(#gstreak)" stroke-width="1.17" stroke-linecap="round" opacity="0.53"/>
+        <line x2="155" transform="rotate(67.0)" stroke="url(#gstreak)" stroke-width="1.55" stroke-linecap="round" opacity="0.40"/>
+        <line x2="203" transform="rotate(85.2)" stroke="url(#gstreak)" stroke-width="2.46" stroke-linecap="round" opacity="0.41"/>
+        <line x2="135" transform="rotate(102.9)" stroke="#262323" stroke-width="1.66" stroke-linecap="round" opacity="0.28"/>
+        <line x2="196" transform="rotate(123.0)" stroke="url(#gstreak)" stroke-width="2.55" stroke-linecap="round" opacity="0.44"/>
+        <line x2="207" transform="rotate(142.9)" stroke="url(#gstreak)" stroke-width="2.54" stroke-linecap="round" opacity="0.42"/>
+        <line x2="184" transform="rotate(157.3)" stroke="url(#gstreak)" stroke-width="2.31" stroke-linecap="round" opacity="0.53"/>
+        <line x2="247" transform="rotate(178.0)" stroke="url(#gstreak)" stroke-width="2.17" stroke-linecap="round" opacity="0.35"/>
+        <line x2="198" transform="rotate(197.6)" stroke="#262323" stroke-width="1.68" stroke-linecap="round" opacity="0.28"/>
+        <line x2="249" transform="rotate(229.5)" stroke="url(#gstreak)" stroke-width="1.63" stroke-linecap="round" opacity="0.47"/>
+        <line x2="179" transform="rotate(231.5)" stroke="url(#gstreak)" stroke-width="2.01" stroke-linecap="round" opacity="0.49"/>
+        <line x2="139" transform="rotate(252.6)" stroke="url(#gstreak)" stroke-width="1.45" stroke-linecap="round" opacity="0.47"/>
+        <line x2="185" transform="rotate(287.5)" stroke="url(#gstreak)" stroke-width="2.36" stroke-linecap="round" opacity="0.47"/>
+        <line x2="248" transform="rotate(305.8)" stroke="#262323" stroke-width="1.29" stroke-linecap="round" opacity="0.28"/>
+        <line x2="251" transform="rotate(323.4)" stroke="url(#gstreak)" stroke-width="1.22" stroke-linecap="round" opacity="0.54"/>
+        <line x2="106" transform="rotate(337.4)" stroke="url(#gstreak)" stroke-width="1.79" stroke-linecap="round" opacity="0.48"/>
+      </g>
+
+      <g id="particles">
+        <use href="#p-m" transform="translate(430 268) scale(1.23)" opacity="0.71"/>
+        <use href="#p-m" transform="translate(521 470) scale(1.55)" opacity="0.51"/>
+        <use href="#p-m" transform="translate(254 410) scale(1.76)" opacity="0.54"/>
+        <use href="#p-m" transform="translate(531 418) scale(1.35)" opacity="0.66"/>
+        <use href="#p-m" transform="translate(369 436) scale(2.52)" opacity="0.67"/>
+        <use href="#p-m" transform="translate(355 248) scale(1.09)" opacity="0.53"/>
+        <use href="#p-m" transform="translate(356 404) scale(2.21)" opacity="0.74"/>
+        <use href="#p-l" transform="translate(428 386) scale(2.14)" opacity="0.76"/>
+        <use href="#p-l" transform="translate(533 397) scale(1.00)" opacity="0.63"/>
+        <use href="#p-m" transform="translate(631 514) scale(0.84)" opacity="0.81"/>
+        <use href="#p-d" transform="translate(362 326) scale(1.22)" opacity="0.52"/>
+        <use href="#p-d" transform="translate(260 409) scale(1.42)" opacity="0.67"/>
+        <use href="#p-d" transform="translate(286 494) scale(1.35)" opacity="0.76"/>
+        <use href="#p-l" transform="translate(366 499) scale(1.35)" opacity="0.46"/>
+        <use href="#p-m" transform="translate(291 429) scale(1.89)" opacity="0.79"/>
+        <use href="#p-m" transform="translate(338 407) scale(1.70)" opacity="0.64"/>
+        <use href="#p-l" transform="translate(287 239) scale(0.90)" opacity="0.76"/>
+        <use href="#p-m" transform="translate(342 364) scale(1.32)" opacity="0.66"/>
+        <use href="#p-l" transform="translate(360 421) scale(1.59)" opacity="0.52"/>
+        <use href="#p-d" transform="translate(412 338) scale(1.96)" opacity="0.63"/>
+        <use href="#p-d" transform="translate(405 376) scale(1.99)" opacity="0.70"/>
+        <use href="#p-l" transform="translate(478 534) scale(1.11)" opacity="0.78"/>
+        <use href="#p-m" transform="translate(408 459) scale(1.63)" opacity="0.52"/>
+        <use href="#p-d" transform="translate(463 409) scale(2.11)" opacity="0.57"/>
+        <use href="#p-d" transform="translate(338 487) scale(1.75)" opacity="0.51"/>
+        <use href="#p-l" transform="translate(401 437) scale(2.00)" opacity="0.62"/>
+        <use href="#p-m" transform="translate(401 316) scale(1.46)" opacity="0.67"/>
+        <use href="#p-d" transform="translate(370 518) scale(1.83)" opacity="0.67"/>
+        <use href="#p-k" transform="translate(415 295) scale(1.76)" opacity="0.54"/>
+        <use href="#p-m" transform="translate(356 587) scale(1.67)" opacity="0.68"/>
+        <use href="#p-m" transform="translate(381 399) scale(1.94)" opacity="0.55"/>
+        <use href="#p-m" transform="translate(439 332) scale(1.51)" opacity="0.67"/>
+        <use href="#p-k" transform="translate(353 492) scale(1.45)" opacity="0.67"/>
+        <use href="#p-m" transform="translate(427 439) scale(1.97)" opacity="0.61"/>
+        <use href="#p-m" transform="translate(493 399) scale(1.47)" opacity="0.76"/>
+        <use href="#p-m" transform="translate(369 500) scale(1.30)" opacity="0.79"/>
+        <use href="#p-m" transform="translate(397 465) scale(1.99)" opacity="0.61"/>
+        <use href="#p-l" transform="translate(343 342) scale(1.90)" opacity="0.61"/>
+        <use href="#p-m" transform="translate(433 532) scale(1.11)" opacity="0.59"/>
+        <use href="#p-l" transform="translate(389 517) scale(1.86)" opacity="0.49"/>
+        <use href="#p-l" transform="translate(390 454) scale(2.18)" opacity="0.55"/>
+        <use href="#p-m" transform="translate(576 373) scale(0.86)" opacity="0.80"/>
+        <use href="#p-m" transform="translate(371 410) scale(2.29)" opacity="0.65"/>
+        <use href="#p-l" transform="translate(439 418) scale(2.13)" opacity="0.79"/>
+        <use href="#p-m" transform="translate(385 539) scale(1.17)" opacity="0.57"/>
+        <use href="#p-k" transform="translate(319 353) scale(1.20)" opacity="0.77"/>
+        <use href="#p-k" transform="translate(406 448) scale(2.25)" opacity="0.84"/>
+        <use href="#p-m" transform="translate(355 328) scale(1.25)" opacity="0.75"/>
+        <use href="#p-m" transform="translate(403 402) scale(2.35)" opacity="0.82"/>
+        <use href="#p-m" transform="translate(364 367) scale(1.36)" opacity="0.75"/>
+        <use href="#p-l" transform="translate(451 235) scale(0.82)" opacity="0.59"/>
+        <use href="#p-d" transform="translate(386 410) scale(2.46)" opacity="0.85"/>
+      </g>
+
+      <g id="specks">
+        <use href="#p-s" transform="translate(458 629) scale(0.51)" opacity="0.33"/>
+        <use href="#p-s" transform="translate(398 447) scale(0.66)" opacity="0.32"/>
+        <use href="#p-s" transform="translate(581 188) scale(0.94)" opacity="0.40"/>
+        <use href="#p-s" transform="translate(11 167) scale(0.95)" opacity="0.20"/>
+        <use href="#p-s" transform="translate(237 727) scale(0.96)" opacity="0.32"/>
+        <use href="#p-s" transform="translate(432 582) scale(0.66)" opacity="0.34"/>
+        <use href="#p-s" transform="translate(401 806) scale(0.49)" opacity="0.33"/>
+        <use href="#p-s" transform="translate(640 364) scale(0.89)" opacity="0.28"/>
+        <use href="#p-sg" transform="translate(57 144) scale(0.89)" opacity="0.17"/>
+        <use href="#p-s" transform="translate(459 642) scale(0.54)" opacity="0.28"/>
+        <use href="#p-s" transform="translate(451 90) scale(0.79)" opacity="0.23"/>
+        <use href="#p-s" transform="translate(190 314) scale(0.98)" opacity="0.31"/>
+        <use href="#p-s" transform="translate(290 267) scale(0.84)" opacity="0.31"/>
+        <use href="#p-s" transform="translate(344 385) scale(0.66)" opacity="0.21"/>
+        <use href="#p-sg" transform="translate(9 840) scale(0.51)" opacity="0.19"/>
+        <use href="#p-s" transform="translate(574 583) scale(0.76)" opacity="0.23"/>
+        <use href="#p-s" transform="translate(387 379) scale(0.69)" opacity="0.23"/>
+        <use href="#p-s" transform="translate(132 178) scale(0.84)" opacity="0.37"/>
+        <use href="#p-s" transform="translate(409 411) scale(0.74)" opacity="0.23"/>
+        <use href="#p-s" transform="translate(517 497) scale(0.60)" opacity="0.18"/>
+        <use href="#p-sg" transform="translate(94 714) scale(0.48)" opacity="0.33"/>
+        <use href="#p-s" transform="translate(64 165) scale(0.75)" opacity="0.25"/>
+        <use href="#p-sg" transform="translate(524 615) scale(0.67)" opacity="0.37"/>
+        <use href="#p-s" transform="translate(299 155) scale(0.79)" opacity="0.35"/>
+        <use href="#p-s" transform="translate(645 875) scale(0.98)" opacity="0.27"/>
+        <use href="#p-s" transform="translate(366 169) scale(0.82)" opacity="0.21"/>
+        <use href="#p-s" transform="translate(693 509) scale(0.99)" opacity="0.40"/>
+        <use href="#p-s" transform="translate(630 497) scale(0.90)" opacity="0.23"/>
+        <use href="#p-s" transform="translate(746 303) scale(0.92)" opacity="0.34"/>
+        <use href="#p-s" transform="translate(724 127) scale(0.86)" opacity="0.31"/>
+        <use href="#p-s" transform="translate(527 686) scale(0.83)" opacity="0.32"/>
+        <use href="#p-s" transform="translate(308 746) scale(0.78)" opacity="0.33"/>
+        <use href="#p-s" transform="translate(35 409) scale(0.60)" opacity="0.32"/>
+        <use href="#p-sg" transform="translate(724 433) scale(0.71)" opacity="0.23"/>
+        <use href="#p-s" transform="translate(128 816) scale(0.73)" opacity="0.34"/>
+        <use href="#p-s" transform="translate(31 215) scale(0.73)" opacity="0.32"/>
+        <use href="#p-s" transform="translate(610 371) scale(0.96)" opacity="0.33"/>
+        <use href="#p-s" transform="translate(286 529) scale(0.99)" opacity="0.24"/>
+        <use href="#p-s" transform="translate(282 147) scale(0.49)" opacity="0.28"/>
+        <use href="#p-s" transform="translate(35 331) scale(0.97)" opacity="0.35"/>
+        <use href="#p-s" transform="translate(95 471) scale(0.89)" opacity="0.28"/>
+        <use href="#p-s" transform="translate(731 771) scale(0.90)" opacity="0.19"/>
+        <use href="#p-s" transform="translate(497 567) scale(0.80)" opacity="0.37"/>
+        <use href="#p-s" transform="translate(537 326) scale(0.83)" opacity="0.25"/>
+        <use href="#p-s" transform="translate(125 856) scale(0.69)" opacity="0.31"/>
+        <use href="#p-sg" transform="translate(565 802) scale(0.65)" opacity="0.20"/>
+        <use href="#p-sg" transform="translate(637 526) scale(0.51)" opacity="0.27"/>
+        <use href="#p-s" transform="translate(597 630) scale(0.56)" opacity="0.35"/>
+        <use href="#p-s" transform="translate(317 651) scale(0.61)" opacity="0.37"/>
+        <use href="#p-s" transform="translate(425 629) scale(0.69)" opacity="0.37"/>
+        <use href="#p-s" transform="translate(481 338) scale(0.80)" opacity="0.37"/>
+        <use href="#p-sg" transform="translate(700 413) scale(0.76)" opacity="0.29"/>
+        <use href="#p-s" transform="translate(224 551) scale(0.86)" opacity="0.29"/>
+        <use href="#p-s" transform="translate(417 758) scale(0.71)" opacity="0.40"/>
+        <use href="#p-s" transform="translate(556 896) scale(0.50)" opacity="0.17"/>
+        <use href="#p-s" transform="translate(386 308) scale(0.67)" opacity="0.23"/>
+        <use href="#p-sg" transform="translate(175 442) scale(0.92)" opacity="0.27"/>
+        <use href="#p-sg" transform="translate(273 192) scale(0.63)" opacity="0.39"/>
+        <use href="#p-s" transform="translate(637 746) scale(0.96)" opacity="0.33"/>
+        <use href="#p-s" transform="translate(140 880) scale(0.88)" opacity="0.33"/>
+        <use href="#p-s" transform="translate(331 444) scale(0.83)" opacity="0.26"/>
+        <use href="#p-s" transform="translate(270 124) scale(0.96)" opacity="0.24"/>
+        <use href="#p-sg" transform="translate(194 834) scale(0.98)" opacity="0.31"/>
+        <use href="#p-s" transform="translate(376 548) scale(0.89)" opacity="0.27"/>
+        <use href="#p-sg" transform="translate(359 765) scale(0.54)" opacity="0.40"/>
+        <use href="#p-sg" transform="translate(401 307) scale(0.54)" opacity="0.37"/>
+        <use href="#p-s" transform="translate(493 322) scale(0.71)" opacity="0.36"/>
+        <use href="#p-s" transform="translate(265 704) scale(0.69)" opacity="0.20"/>
+        <use href="#p-sg" transform="translate(758 680) scale(0.85)" opacity="0.30"/>
+        <use href="#p-sg" transform="translate(349 867) scale(0.77)" opacity="0.21"/>
+        <use href="#p-s" transform="translate(620 362) scale(0.96)" opacity="0.32"/>
+        <use href="#p-sg" transform="translate(437 875) scale(0.82)" opacity="0.37"/>
+      </g>
+
+      <g id="sparks">
+        <use href="#spark" transform="translate(579 545) rotate(14.7) scale(1.10)" opacity="0.65"/>
+        <use href="#spark" transform="translate(389 700) rotate(7.5) scale(1.13)" opacity="0.81"/>
+        <use href="#spark" transform="translate(202 533) rotate(35.8) scale(1.18)" opacity="0.72"/>
+        <use href="#spark" transform="translate(160 292) rotate(34.1) scale(1.02)" opacity="0.62"/>
+        <use href="#spark" transform="translate(372 205) rotate(37.6) scale(0.98)" opacity="0.76"/>
+        <use href="#spark" transform="translate(584 246) rotate(4.8) scale(1.11)" opacity="0.74"/>
+        <use href="#spark" transform="translate(558 405) rotate(7.8) scale(1.07)" opacity="0.63"/>
+      </g>
+
+          <g id="core">
+            <circle cx="380" cy="430" r="70" fill="url(#gcore)" opacity=".5" filter="url(#coreglow)"/>
+            <circle cx="380" cy="430" r="34" fill="url(#gmid)" filter="url(#soft)"/>
+            <circle cx="380" cy="430" r="13" fill="#eafff2"/>
+            <circle cx="380" cy="430" r="5" fill="#ffffff"/>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- SIGNALS -->
-<div class="signals-strip reveal delay-3">
+<div class="signals-strip">
   <div class="signal-tile">
     <span class="mono">Banks</span>
     <strong>Awash + CBE</strong>
@@ -243,40 +447,75 @@
 </div>
 
 <!-- FEATURES -->
-<section class="section" id="features">
+<section class="section features-section" id="features">
   <div class="section-head">
-    <p class="eyebrow reveal">Why Faranka</p>
-    <h2 class="section-title reveal delay-1">Know where your money goes, <span class="title-faint">automatically.</span></h2>
-    <p class="section-sub reveal delay-2">Supported bank SMS in, structured transactions out, then a dashboard that makes the data actionable through categories, receipts, budgets, and insights.</p>
+    <p class="eyebrow">Why Faranka</p>
+    <h2 class="section-title">Know where your money goes, <span class="title-faint">automatically.</span></h2>
+    <p class="section-sub">Supported bank SMS in, structured transactions out, then a dashboard that makes the data actionable through categories, receipts, budgets, and insights.</p>
   </div>
 
-  <div class="features-grid">
-    <div class="feature-card reveal">
-      <span class="feature-chip">Parsing</span>
-      <h3>Awash and CBE SMS parsing</h3>
-      <p>The app reads supported bank messages, extracts transaction details, and turns them into structured spending records automatically.</p>
+  <div class="feature-rows">
+    <div class="feature-row">
+      <div class="feature-row-copy">
+        <span class="feature-chip">Parsing</span>
+        <h3>Awash and CBE SMS parsing</h3>
+        <p>The app reads supported bank messages, extracts transaction details, and turns them into structured spending records automatically.</p>
+      </div>
+      <div class="feature-row-visual">
+        <figure class="real-app-image">
+          <picture>
+            <source srcset="/home-light.webp" type="image/webp" />
+            <img src="/home-light.png" alt="Faranka home screen in light mode showing budgets, balances, and spending pace" width="842" height="1867" loading="lazy" />
+          </picture>
+        </figure>
+      </div>
     </div>
-    <div class="feature-card reveal delay-1">
-      <span class="feature-chip">Dashboard</span>
-      <h3>A dashboard that answers fast</h3>
-      <p>Balances, category breakdowns, recent transactions, and charts are built to answer the main question instantly: where did the money go?</p>
+
+    <div class="feature-row">
+      <div class="feature-row-visual">
+        <figure class="real-app-image">
+          <picture>
+            <source srcset="/insights-light.webp" type="image/webp" />
+            <img src="/insights-light.jpg" alt="Faranka insights screen in light mode showing spending trends and analysis" width="1080" height="2400" loading="lazy" />
+          </picture>
+        </figure>
+      </div>
+      <div class="feature-row-copy">
+        <span class="feature-chip">Dashboard</span>
+        <h3>A dashboard that answers fast</h3>
+        <p>Balances, category breakdowns, recent transactions, and charts are built to answer the main question instantly: where did the money go?</p>
+      </div>
     </div>
-    <div class="feature-card reveal delay-2">
+
+    <div class="feature-row">
+      <div class="feature-row-copy">
+        <span class="feature-chip">Privacy</span>
+        <h3>Local storage with Drift</h3>
+        <p>Imported data stays entirely on the device, which keeps the workflow fast and gives users a clear, honest privacy story.</p>
+      </div>
+      <div class="feature-row-visual">
+        <figure class="real-app-image">
+          <picture>
+            <source srcset="/transactions-light.webp" type="image/webp" />
+            <img src="/transactions-light.png" alt="Faranka transactions screen in light mode showing spending history" width="921" height="1707" loading="lazy" />
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="value-cards">
+    <div class="value-card">
       <span class="feature-chip">Insights</span>
       <h3>Budgets, insights, and receipts</h3>
       <p>Review transactions, open receipt details, compare trends, and keep an eye on overspend without ever leaving the app.</p>
     </div>
-    <div class="feature-card reveal delay-1">
-      <span class="feature-chip">Privacy</span>
-      <h3>Local storage with Drift</h3>
-      <p>Imported data stays entirely on the device, which keeps the workflow fast and gives users a clear, honest privacy story.</p>
-    </div>
-    <div class="feature-card reveal delay-2">
+    <div class="value-card">
       <span class="feature-chip">Identity</span>
       <h3>Google Sign-In and settings</h3>
       <p>Identity, settings, and account management are already in the product flow, so the experience feels complete rather than experimental.</p>
     </div>
-    <div class="feature-card reveal delay-3">
+    <div class="value-card">
       <span class="feature-chip">Updates</span>
       <h3>Auto-update ready</h3>
       <p>The site and the app share the same release metadata, so new Android builds can ship with a simple, reliable update path.</p>
@@ -286,35 +525,38 @@
 
 <!-- HOW IT WORKS -->
 <section class="flow-section" id="flow">
+  <div class="ridge ridge-top" aria-hidden="true">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none"><path d="M0 220 L0 128 L92 104 L164 140 L238 92 L332 130 L422 72 L520 120 L612 58 L704 110 L788 92 L866 132 L962 76 L1062 118 L1164 84 L1266 120 L1344 100 L1440 134 L1440 220 Z"/></svg>
+  </div>
   <div class="flow-inner">
-    <div>
-      <p class="eyebrow reveal">User flow</p>
-      <h2 class="section-title reveal delay-1">From message import to insight, <span class="title-faint">the path stays short.</span></h2>
-      <p class="section-sub reveal delay-2">Install, import, review, and keep up with releases. The onboarding story is obvious by design.</p>
+    <div class="flow-copy">
+      <p class="eyebrow eyebrow-light">User flow</p>
+      <h2 class="section-title section-title-light">From message import to insight, <span class="title-faint title-faint-light">the path stays short.</span></h2>
+      <p class="section-sub section-sub-light">Install, import, review, and keep up with releases. The onboarding story is obvious by design.</p>
 
       <div class="steps-list">
-        <div class="step-item reveal">
+        <div class="step-item">
           <span class="step-num">01</span>
           <div class="step-content">
             <h3>Install the Android build</h3>
             <p>Download the APK directly and make the first action obvious. No Play Store friction.</p>
           </div>
         </div>
-        <div class="step-item reveal delay-1">
+        <div class="step-item">
           <span class="step-num">02</span>
           <div class="step-content">
             <h3>Grant SMS access and import</h3>
             <p>Faranka scans supported messages, detects banks, and structures transactions automatically.</p>
           </div>
         </div>
-        <div class="step-item reveal delay-2">
+        <div class="step-item">
           <span class="step-num">03</span>
           <div class="step-content">
             <h3>Review categories and trends</h3>
             <p>Land in a dashboard that highlights balances, spending patterns, and problem categories.</p>
           </div>
         </div>
-        <div class="step-item reveal delay-3">
+        <div class="step-item">
           <span class="step-num">04</span>
           <div class="step-content">
             <h3>Keep the app current</h3>
@@ -324,54 +566,49 @@
       </div>
     </div>
 
-    <div class="flow-screenshots reveal delay-2">
-      <figure class="real-app-image">
+    <div class="flow-visual">
+      <figure class="real-app-image frame-dark">
         <picture>
           <source srcset="/insights-dark.webp" type="image/webp" />
           <img src="/insights-dark.jpg" alt="Faranka insights screen in dark mode showing spending trends" width="1080" height="2400" loading="lazy" />
         </picture>
       </figure>
-      <figure class="real-app-image">
-        <picture>
-          <source srcset="/transactions-light.webp" type="image/webp" />
-          <img src="/transactions-light.png" alt="Faranka transactions screen in light mode showing spending history" width="921" height="1707" loading="lazy" />
-        </picture>
-      </figure>
     </div>
+  </div>
+  <div class="ridge ridge-bottom" aria-hidden="true">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none"><path d="M0 220 L0 128 L92 104 L164 140 L238 92 L332 130 L422 72 L520 120 L612 58 L704 110 L788 92 L866 132 L962 76 L1062 118 L1164 84 L1266 120 L1344 100 L1440 134 L1440 220 Z"/></svg>
   </div>
 </section>
 
 <!-- RELEASE -->
 <section class="section" id="release">
   <div class="section-head">
-    <p class="eyebrow reveal">Current release</p>
-    <h2 class="section-title reveal delay-1">Keep the APK and the website <span class="title-faint">in sync.</span></h2>
-    <p class="section-sub reveal delay-2">The download button and release details are driven by the same JSON file the app uses for OTA checks, so the marketing page stays aligned with what is actually shipping.</p>
+    <p class="eyebrow">Current release</p>
+    <h2 class="section-title">Keep the APK and the website <span class="title-faint">in sync.</span></h2>
+    <p class="section-sub">The download button and release details are driven by the same JSON file the app uses for OTA checks, so the marketing page stays aligned with what is actually shipping.</p>
   </div>
 
   <div class="release-grid">
-    <div class="reveal">
-      <div class="release-meta-grid">
-        <div class="release-meta-tile">
-          <span class="mono">Version</span>
-          <strong>__VERSION__</strong>
-        </div>
-        <div class="release-meta-tile">
-          <span class="mono">Banks</span>
-          <strong>Awash + CBE</strong>
-        </div>
-        <div class="release-meta-tile">
-          <span class="mono">Delivery</span>
-          <strong>Direct APK</strong>
-        </div>
-        <div class="release-meta-tile">
-          <span class="mono">Privacy</span>
-          <strong>On-device</strong>
-        </div>
+    <div class="release-meta-grid">
+      <div class="release-meta-tile">
+        <span class="mono">Version</span>
+        <strong class="disp">__VERSION__</strong>
+      </div>
+      <div class="release-meta-tile">
+        <span class="mono">Banks</span>
+        <strong>Awash + CBE</strong>
+      </div>
+      <div class="release-meta-tile">
+        <span class="mono">Delivery</span>
+        <strong>Direct APK</strong>
+      </div>
+      <div class="release-meta-tile">
+        <span class="mono">Privacy</span>
+        <strong>On-device</strong>
       </div>
     </div>
 
-    <div class="release-card reveal delay-2">
+    <div class="release-card">
       <a class="release-download" href="/download" download="faranka.apk">
         <strong>Download APK</strong>
         <span class="mono">v__VERSION__ · latest release</span>
@@ -393,43 +630,43 @@
 <!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="section-head">
-    <p class="eyebrow reveal">FAQ</p>
-    <h2 class="section-title reveal delay-1">Common questions</h2>
-    <p class="section-sub reveal delay-2">Everything you need to know about Faranka.</p>
+    <p class="eyebrow">FAQ</p>
+    <h2 class="section-title">Common questions</h2>
+    <p class="section-sub">Everything you need to know about Faranka.</p>
   </div>
 
   <div class="faq-list">
-    <div class="faq-card reveal">
+    <div class="faq-card">
       <span class="mono">Q.01</span>
       <h3>What is Faranka?</h3>
       <p>Faranka is an Android app that reads your bank SMS messages and receipts, then automatically organizes them into a clear picture of your spending — budgets, categories, and trends, all on your device.</p>
     </div>
-    <div class="faq-card reveal delay-1">
+    <div class="faq-card">
       <span class="mono">Q.02</span>
       <h3>Which banks are supported?</h3>
       <p>Faranka currently supports Awash Bank and Commercial Bank of Ethiopia (CBE), with more banks coming.</p>
     </div>
-    <div class="faq-card reveal delay-2">
+    <div class="faq-card">
       <span class="mono">Q.03</span>
       <h3>Is my data stored in the cloud?</h3>
       <p>No. Your financial data never leaves your phone. There are no accounts to create and no servers to trust. Faranka works entirely on your device.</p>
     </div>
-    <div class="faq-card reveal delay-1">
+    <div class="faq-card">
       <span class="mono">Q.04</span>
       <h3>How do I get started?</h3>
       <p>Download the APK, install it on your Android device, and grant SMS permission once. Faranka will find your bank messages and let you choose how many to import.</p>
     </div>
-    <div class="faq-card reveal delay-2">
+    <div class="faq-card">
       <span class="mono">Q.05</span>
       <h3>Can I edit categories?</h3>
       <p>Yes. Faranka automatically assigns categories based on who you paid, but you can rename, merge, or create new ones at any time to match your system.</p>
     </div>
-    <div class="faq-card reveal delay-3">
+    <div class="faq-card">
       <span class="mono">Q.06</span>
       <h3>What does it mean Faranka automatically categorizes?</h3>
       <p>Faranka extracts a <strong>reason</strong> from every bank message — the name of the person, business, or service you paid. Every transaction is automatically categorized based on it: Faranka compares the reason against categories it has seen before and assigns a match, or creates a new category if none exists.</p>
     </div>
-    <div class="faq-card reveal delay-3">
+    <div class="faq-card">
       <span class="mono">Q.07</span>
       <h3>What does each transaction show?</h3>
       <p>Every transaction shows the amount, date, counterparty name, bank, and category. Tap any transaction to see the full receipt details, edit the category, and view the original SMS.</p>
@@ -438,7 +675,7 @@
 </section>
 
 <!-- SUPPORTED BANKS -->
-<div class="support-strip reveal delay-3">
+<div class="support-strip">
   <p class="support-label">Currently supporting</p>
   <div class="support-banks">
     <div class="bank-tile">
@@ -459,7 +696,7 @@
 </div>
 
 <!-- FOOTER -->
-<footer class="reveal">
+<footer>
   <div class="footer-cta">
     <h2>Your money, <span class="title-faint">on autopilot.</span></h2>
     <a class="btn-dark" href="/download" download="faranka.apk">
@@ -487,7 +724,10 @@
       <a href="#faq">FAQ</a>
       <a href="#features">Features</a>
     </div>
-    <p class="footer-copy">&copy; 2026 Faranka · All rights reserved</p>
+    <div class="footer-meta">
+      <span class="footer-badge">100% on-device</span>
+      <p class="footer-copy">&copy; 2026 Faranka · All rights reserved</p>
+    </div>
   </div>
 </footer>
 

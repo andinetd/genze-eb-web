@@ -9,10 +9,10 @@
 
   body {
     background:
-      radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 34%),
-      radial-gradient(circle at 85% 12%, rgba(134, 239, 172, 0.12), transparent 28%),
-      #ffffff;
-    color: #0a0a0a;
+      radial-gradient(circle at top left, rgba(11, 149, 223, 0.05), transparent 34%),
+      radial-gradient(circle at 85% 12%, rgba(62, 108, 91, 0.07), transparent 28%),
+      #f3f1e9;
+    color: #232a28;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
