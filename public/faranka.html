@@ -75,7 +75,7 @@
       "name": "Is my data stored in the cloud?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your financial data never leaves your phone. There are no accounts to create and no servers to trust. Faranka works entirely on your device."
+        "text": "By default, no. Bank messages and spending data are processed and kept on your device. Cloud features like backup and receipt verification are optional and only tied to the account you explicitly sign in with; skip them and nothing is uploaded."
       }
     },
     {
@@ -91,7 +91,15 @@
       "name": "Can I edit categories?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Faranka automatically assigns categories based on who you paid, but you can rename, merge, or create new ones at any time."
+        "text": "Yes. Faranka automatically assigns categories based on who you paid, but you can rename, merge, or create new ones at any time to match your system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Faranka track me or sell data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Faranka ships with no analytics, advertising, or third-party tracking SDKs and nothing is sold. Check permissions on your phone or audit the APK with an independent tool like Exodus Privacy."
       }
     }
   ]
@@ -139,10 +147,7 @@
   <div class="header-inner">
     <a class="nav-logo" href="#">
       <span class="nav-logo-icon">
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 12L8 4L13 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5.5 9h5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
+        <img src="/app-icon.png" alt="" />
       </span>
       Faranka
     </a>
@@ -153,6 +158,8 @@
       <a href="#flow">How it works</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <a href="#release">Releases</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="#privacy">Privacy</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <a href="#faq">FAQ</a>
     </nav>
@@ -173,6 +180,7 @@
     <a href="#features">Features</a>
     <a href="#flow">How it works</a>
     <a href="#release">Releases</a>
+    <a href="#privacy">Privacy</a>
     <a href="#faq">FAQ</a>
     <a href="mailto:support@faranka.com">Support</a>
     <a class="btn-primary" href="/download" download="faranka.apk">
@@ -649,7 +657,7 @@
     <div class="faq-card">
       <span class="mono">Q.03</span>
       <h3>Is my data stored in the cloud?</h3>
-      <p>No. Your financial data never leaves your phone. There are no accounts to create and no servers to trust. Faranka works entirely on your device.</p>
+      <p>By default, no. Your bank messages and spending data are processed and kept on your device. Cloud features — like backup and receipt verification — are optional and only ever tied to the account you explicitly sign in with. Skip them and nothing is uploaded. <a href="#privacy">See the full privacy breakdown</a>.</p>
     </div>
     <div class="faq-card">
       <span class="mono">Q.04</span>
@@ -670,6 +678,87 @@
       <span class="mono">Q.07</span>
       <h3>What does each transaction show?</h3>
       <p>Every transaction shows the amount, date, counterparty name, bank, and category. Tap any transaction to see the full receipt details, edit the category, and view the original SMS.</p>
+    </div>
+    <div class="faq-card">
+      <span class="mono">Q.08</span>
+      <h3>Does Faranka track me or sell data?</h3>
+      <p>No. The app ships with no analytics, advertising, or third-party tracking SDKs and nothing is sold. Check the permissions on your phone, or audit the APK with an independent tool like Exodus Privacy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section class="privacy-section" id="privacy">
+  <div class="privacy-inner">
+    <div class="section-head">
+      <p class="eyebrow">Privacy &amp; data</p>
+      <h2 class="section-title">Privacy, <span class="title-faint">spelled out.</span></h2>
+      <p class="section-sub">Faranka reads bank SMS, so the first question is always “what happens to my data?”. Here is the answer — and where to check it for yourself.</p>
+    </div>
+
+    <div class="privacy-grid">
+      <div class="value-card">
+        <span class="feature-chip">Local by default</span>
+        <h3>Starts and stays on your phone</h3>
+        <p>Messages are parsed on-device and kept in a local database (Drift). Everyday use needs no account, no sign-up, and no upload.</p>
+      </div>
+      <div class="value-card">
+        <span class="feature-chip">No trackers, no ads</span>
+        <h3>Nothing measured, nothing sold</h3>
+        <p>The app ships without analytics, advertising, or third-party tracking SDKs, and nothing is measured, sold, or shared with third parties.</p>
+      </div>
+      <div class="value-card">
+        <span class="feature-chip">Optional cloud</span>
+        <h3>Only if you ask for it</h3>
+        <p>Sign-in, cloud backup, and receipt verification are opt-in, tied to your own Google account. Skip them and everything stays on-device.</p>
+      </div>
+      <div class="value-card">
+        <span class="feature-chip">Protection</span>
+        <h3>Biometric app lock</h3>
+        <p>Optional fingerprint or face unlock keeps your numbers private on the phone itself — verified locally, not in the cloud.</p>
+      </div>
+    </div>
+
+    <div class="privacy-columns">
+      <div class="privacy-col">
+        <span class="feature-chip">Stays on the device</span>
+        <ul class="privacy-list">
+          <li><strong>Imported SMS and transactions</strong> — parsed and kept in the on-device database.</li>
+          <li><strong>Categories, budgets, and settings</strong> — local preferences, on your phone.</li>
+          <li><strong>Biometric unlock</strong> — the check happens on the device, nothing is shared.</li>
+        </ul>
+      </div>
+      <div class="privacy-col">
+        <span class="feature-chip">Uses the internet only when it needs to</span>
+        <ul class="privacy-list">
+          <li><strong>Update check</strong> — looks up the latest release version, and nothing else.</li>
+          <li><strong>Sign-in and subscription</strong> — optional Google Sign-In for the paid features that need it.</li>
+          <li><strong>Cloud backup</strong> — a copy you explicitly send to a folder only your account can read or delete.</li>
+          <li><strong>Receipt details</strong> — when you open a receipt link, the app fetches its contents to show the particulars.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="privacy-check">
+      <p class="eyebrow">Verify it for yourself</p>
+      <h3 class="privacy-check-title">Where to check what the app uses</h3>
+      <div class="privacy-check-row">
+        <a class="privacy-check-tile" href="https://reports.exodus-privacy.eu.org/" rel="noopener" target="_blank">
+          <span class="mono">Independent audit</span>
+          <strong>Exodus Privacy</strong>
+          <span>Scan an APK and see every tracker and permission it embeds.</span>
+        </a>
+        <div class="privacy-check-tile">
+          <span class="mono">On your Android phone</span>
+          <strong>App permissions</strong>
+          <span>Settings → Apps → Faranka → Permissions and Data usage show live access.</span>
+        </div>
+        <a class="privacy-check-tile" href="mailto:support@faranka.com">
+          <span class="mono">Ask us directly</span>
+          <strong>Questions about data?</strong>
+          <span>Email support@faranka.com and we will tell you exactly how your data is handled.</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -709,10 +798,7 @@
     <div class="footer-brand">
       <a class="nav-logo" href="#">
         <span class="nav-logo-icon">
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 12L8 4L13 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M5.5 9h5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
+          <img src="/app-icon.png" alt="" />
         </span>
         Faranka
       </a>
