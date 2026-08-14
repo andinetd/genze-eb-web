@@ -18,7 +18,10 @@ const monoFont = localFont({
 });
 
 const displayFont = localFont({
-  src: "./fonts/DepartureMono-Regular.woff2",
+  src: [
+    { path: "./fonts/Satoshi-500.woff2", weight: "500" },
+    { path: "./fonts/Satoshi-700.woff2", weight: "700" },
+  ],
   variable: "--font-display",
   display: "swap",
 });
@@ -28,7 +31,7 @@ const siteUrl = "https://faranka.app";
 export const metadata = {
   title: "Faranka — Automatic SMS Finance Tracker for Android",
   description:
-    "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, spending pace, and insights — all on your device, no sign-up needed.",
+    "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, spending pace, and insights — one-tap Google sign-in, on-device by default.",
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
@@ -36,7 +39,7 @@ export const metadata = {
   openGraph: {
     title: "Faranka — Track Every Birr. Automatically.",
     description:
-      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — no account, no data upload.",
+      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — one-tap Google sign-in, on-device by default.",
     url: siteUrl,
     siteName: "Faranka",
     locale: "en_US",
@@ -54,7 +57,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Faranka — Track Every Birr. Automatically.",
     description:
-      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — no account, no data upload.",
+      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — one-tap Google sign-in, on-device by default.",
     images: [
       {
         url: "/og-image.png",
@@ -79,7 +82,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f3f1e9",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }) {

@@ -21,7 +21,7 @@ export default async function Home() {
 
     const siteUrl = "https://faranka.app";
     const description =
-      "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, balances, and spending insights — all on your device, no sign-up needed.";
+      "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, balances, and spending insights — one-tap Google sign-in, on-device by default.";
     const jsonLd = {
       "@context": "https://schema.org",
       "@graph": [
@@ -53,13 +53,20 @@ export default async function Home() {
             "@type": "Offer",
             price: "0",
             priceCurrency: "ETB",
+            description:
+              "Free tier: 50 receipts and 90 days of history. Pro unlocks unlimited receipts, full history, cloud backup/restore, and JSON/CSV export (99 ETB/mo or 990 ETB/yr).",
           },
           featureList: [
             "Automatic SMS import",
             "Transaction categorization",
             "Real-time budgets and spending pace",
             "Weekly spending summaries",
-            "100% offline — no data leaves your phone",
+            "Calendar heatmaps, category radar, and top merchants",
+            "On-device storage by default",
+            "Optional encrypted cloud backup and restore (Pro)",
+            "JSON/CSV export (Pro)",
+            "Biometric lock",
+            "No analytics or advertising SDKs",
           ],
         },
       ],
@@ -73,7 +80,7 @@ export default async function Home() {
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        <link rel="preload" as="image" href="/hero.jpg" fetchpriority="high" />
+        
         <style dangerouslySetInnerHTML={{ __html: styles }} />
         {/* Render body only on client to avoid hydration mismatch */}
         <PreservedHtmlClient html={hydratedBody} containerId="preserved-root" />
