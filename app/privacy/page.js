@@ -46,8 +46,7 @@ export default function PrivacyPage() {
             <p>
               Faranka Pro offers an <em>optional</em>, user-initiated encrypted cloud backup so you
               can restore your history on a new device. This only happens if you turn it on. You
-              can delete your cloud backup at any time from Settings, or by emailing us at{" "}
-              <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
+              can delete your cloud backup at any time from Settings, 
             </p>
 
             <h2>Permissions we request</h2>
@@ -56,6 +55,9 @@ export default function PrivacyPage() {
                 <strong>SMS access</strong> — to detect and parse transaction messages from
                 supported banks.
               </li>
+              <li>
+                <strong>Notification access</strong> —to give daily ,weekly, monthly and more notifications.
+              </li> 
               <li>
                 <strong>Biometric/lock screen</strong> (optional) — to lock the app with your
                 fingerprint or face, available on Pro.

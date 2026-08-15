@@ -10,7 +10,7 @@ export default function FinalCTA({ version }) {
           <DownloadButton className="btn btn-white">Download for Android</DownloadButton>
         </Reveal>
         <Reveal as="p" className="download-meta" delay={0.14}>
-          Free to download · Android 8.0+
+          Free to download .
         </Reveal>
       </div>
     </section>

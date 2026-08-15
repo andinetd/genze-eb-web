@@ -30,7 +30,7 @@ const FAQS = [
   },
   {
     q: "How do categories work?",
-    a: "Each transaction is automatically categorized based on the SMS text. You can change a transaction's category by tapping it and selecting a different one, or split a transaction across multiple categories.",
+    a: "Each transaction is automatically categorized based on the reason field found from the receipt parsing. You can change a transaction's category by tapping it and selecting a different one, or split a transaction across multiple categories.",
   },
   {
     q: "Can I create budgets?",
