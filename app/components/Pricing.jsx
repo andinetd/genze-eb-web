@@ -1,63 +1,51 @@
-import DownloadButton from "./DownloadButton";
 import Reveal from "./Reveal";
+import DownloadButton from "./DownloadButton";
 
 const FREE_FEATURES = [
-  "Parsing for Awash · CBE · BoA · Telebirr",
-  "Categories, budgets & insights",
-  "50 receipts kept",
+  "50 receipts stored",
   "90 days of history",
-  "100% on-device, no ads or trackers",
+  "Up to 3 banks",
+  "No ads, no trackers",
 ];
 
 const PRO_FEATURES = [
-  "Everything in Free",
-  "Unlimited receipts & full history",
-  "Encrypted cloud backup & restore",
-  "Export your data (JSON / CSV)",
+  "Unlimited banks & receipts",
+  "Full history, forever",
   "Pay via Telebirr · CBE · Awash",
 ];
 
 export default function Pricing() {
   return (
-    <section className="band band-pricing" id="pricing">
-      <div className="container center band-head">
-        <Reveal as="h2" className="section-title">
-          Pricing
-        </Reveal>
-      </div>
-
+    <section className="pricing" id="pricing">
       <div className="container">
         <div className="pricing-grid">
-          <Reveal className="plan-card">
-            <span className="mono plan-tag">Free</span>
-            <p className="plan-price">
-              0<span className="plan-unit"> ETB/mo</span>
+          <Reveal className="pricing-card">
+            <span className="pricing-tier">Free</span>
+            <p className="pricing-price">
+              ETB 0<span className="pricing-period"> / forever</span>
             </p>
-            <ul className="plan-options">
+            <ul className="pricing-list">
               {FREE_FEATURES.map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
-            <DownloadButton className="btn-ghost btn-block" >
-              Download free
-            </DownloadButton>
+            <DownloadButton className="btn btn-ink">Download for Android</DownloadButton>
           </Reveal>
 
-          <Reveal className="plan-card plan-card-pro" delay={0.08}>
-            <span className="mono plan-tag">Pro</span>
-            <p className="plan-price">
-              99<span className="plan-unit"> ETB/mo</span>
-              <span className="plan-alt">or 990 ETB/yr</span>
+          <Reveal className="pricing-card pricing-card-pro" delay={0.06}>
+            <span className="pricing-tier">Pro</span>
+            <p className="pricing-price">
+              ETB 99<span className="pricing-period"> / month</span>
             </p>
-            <p className="plan-desc">Full history, unlimited receipts, and cloud backup.</p>
-            <ul className="plan-options">
+            <p className="pricing-alt">or ETB 990 / year</p>
+            <ul className="pricing-list">
               {PRO_FEATURES.map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
-            <DownloadButton className="btn-primary btn-block" >
-              Go Pro
-            </DownloadButton>
+            <a className="btn btn-white" href="mailto:support@faranka.com?subject=Faranka%20Pro">
+              Get Pro
+            </a>
           </Reveal>
         </div>
       </div>

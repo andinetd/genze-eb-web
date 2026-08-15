@@ -2,17 +2,14 @@ import { getReleaseData } from "../lib/release-data";
 import { getJsonLd } from "../lib/site-config";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import SocialProof from "./components/SocialProof";
+import Trust from "./components/Trust";
 import Features from "./components/Features";
-import Stats from "./components/Stats";
-import Testimonials from "./components/Testimonials";
-import Pricing from "./components/Pricing";
+import Screens from "./components/Screens";
 import HowItWorks from "./components/HowItWorks";
-import FAQ from "./components/FAQ";
+import Pricing from "./components/Pricing";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
 import StructuredData from "./components/StructuredData";
-import VideoDriver from "./components/VideoDriver";
 
 export default async function Home() {
   const releaseData = await getReleaseData();
@@ -23,16 +20,13 @@ export default async function Home() {
       <StructuredData data={getJsonLd(version)} />
       <Header />
       <Hero version={version} />
-      <SocialProof />
+      <Trust />
       <Features />
-      <Stats />
-      <Testimonials />
-      <Pricing />
+      <Screens />
       <HowItWorks />
-      <FAQ />
+      <Pricing />
       <FinalCTA version={version} />
       <Footer />
-      <VideoDriver />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export default function Reveal({ children, delay = 0, className = "", as: Tag = "div" }) {
+export default function Reveal({ children, delay = 0, className = "", as: Tag = "div", style }) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -34,7 +34,7 @@ export default function Reveal({ children, delay = 0, className = "", as: Tag = 
     <Tag
       ref={ref}
       className={`${className} reveal${inView ? " is-in" : ""}`.trim()}
-      style={{ "--d": `${delay}s` }}
+      style={{ "--d": `${delay}s`, ...style }}
     >
       {children}
     </Tag>

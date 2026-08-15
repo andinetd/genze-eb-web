@@ -1,34 +1,30 @@
 import Reveal from "./Reveal";
 
 const STEPS = [
-  { num: "01", title: "Install", text: "Download the APK and install it." },
+  { num: "01", title: "Install", text: "Download the APK and install it on your Android device." },
   {
     num: "02",
-    title: "Import",
-    text: "Grant SMS access once. Faranka scans supported messages and structures them.",
+    title: "Grant access",
+    text: "Allow Faranka to read receipts and SMS — once.",
   },
   {
     num: "03",
-    title: "Review",
-    text: "Review balances, patterns, and problem categories.",
+    title: "See your money",
+    text: "Transactions are categorized automatically. No manual entry.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="band band-alt" id="flow">
+    <section className="how-it-works" id="flow">
       <div className="container">
-        <div className="center band-head">
-          <Reveal as="h2" className="section-title">
-            How it works
-          </Reveal>
-        </div>
-        <div className="steps-grid">
-          {STEPS.map((step, i) => (
-            <Reveal className="step" key={step.num} delay={i * 0.06}>
-              <span className="mono step-num">{step.num}</span>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
+        <h2 className="section-title">Up and running in three steps</h2>
+        <div className="steps">
+          {STEPS.map((s) => (
+            <Reveal className="step" key={s.num}>
+              <span className="step-num">{s.num}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
             </Reveal>
           ))}
         </div>

@@ -12,10 +12,14 @@ import {
 import EnableJs from "./components/EnableJs";
 
 const bodyFont = localFont({
-  src: "./fonts/InterVariable.woff2",
+  src: [
+    { path: "./fonts/IBMPlexSans-400.woff2", weight: "400" },
+    { path: "./fonts/IBMPlexSans-500.woff2", weight: "500" },
+    { path: "./fonts/IBMPlexSans-600.woff2", weight: "600" },
+    { path: "./fonts/IBMPlexSans-700.woff2", weight: "700" },
+  ],
   variable: "--font-body",
   display: "swap",
-  weight: "100 900",
 });
 
 const monoFont = localFont({

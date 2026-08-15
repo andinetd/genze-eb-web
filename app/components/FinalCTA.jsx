@@ -1,23 +1,16 @@
 import DownloadButton from "./DownloadButton";
 import Reveal from "./Reveal";
-import { ArrowRight } from "./icons";
 
 export default function FinalCTA({ version }) {
   return (
-    <section className="band band-final band-grain">
-      <div className="container center">
-        <Reveal as="h2" className="section-title">
-          Get Faranka
+    <section className="download-section">
+      <div className="container download-inner">
+        <Reveal as="h2">Ready to take control?</Reveal>
+        <Reveal className="download-cta" delay={0.08}>
+          <DownloadButton className="btn btn-white">Download for Android</DownloadButton>
         </Reveal>
-        <Reveal className="cta-row">
-          <DownloadButton className="btn-primary btn-lg">
-            Download APK
-            <span className="btn-meta mono">v{version}</span>
-            <ArrowRight />
-          </DownloadButton>
-        </Reveal>
-        <Reveal as="p" className="hero-meta mono">
-          Free to start · On-device · Android
+        <Reveal as="p" className="download-meta" delay={0.14}>
+          Free to download · Android 8.0+
         </Reveal>
       </div>
     </section>
