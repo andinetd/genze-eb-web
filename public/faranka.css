@@ -743,21 +743,6 @@ a {
   justify-content: center;
 }
 
-.bank-strip-logos .bank-strip-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.bank-strip-logos .bank-name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  white-space: nowrap;
-}
-
 .bank-strip-logos img {
   height: 30px;
   width: auto;
@@ -768,8 +753,12 @@ a {
   height: 24px;
 }
 
-.bank-strip-logos .bank-logo-mark {
-  height: 36px;
+.bank-strip-logos .bank-logo-lg {
+  height: 30px;
+}
+
+.bank-strip-logos .bank-logo-square {
+  height: 34px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1179,8 +1168,12 @@ a {
     height: 20px;
   }
 
-  .bank-strip-logos .bank-logo-mark {
-    height: 30px;
+  .bank-strip-logos .bank-logo-lg {
+    height: 26px;
+  }
+
+  .bank-strip-logos .bank-logo-square {
+    height: 28px;
   }
 
   .stat {
