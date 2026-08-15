@@ -1,5 +1,15 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import {
+  description,
+  keywords,
+  ogDescription,
+  ogTitle,
+  siteName,
+  siteUrl,
+  title,
+} from "../lib/site-config";
+import EnableJs from "./components/EnableJs";
 
 const bodyFont = localFont({
   src: "./fonts/InterVariable.woff2",
@@ -26,22 +36,18 @@ const displayFont = localFont({
   display: "swap",
 });
 
-const siteUrl = "https://faranka.app";
-
 export const metadata = {
-  title: "Faranka — Automatic SMS Finance Tracker for Android",
-  description:
-    "Faranka automatically parses bank SMS, categorizes every transaction, and gives you real-time budgets, spending pace, and insights — one-tap Google sign-in, on-device by default.",
+  title,
+  description,
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Faranka — Track Every Birr. Automatically.",
-    description:
-      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — one-tap Google sign-in, on-device by default.",
+    title: ogTitle,
+    description: ogDescription,
     url: siteUrl,
-    siteName: "Faranka",
+    siteName,
     locale: "en_US",
     type: "website",
     images: [
@@ -55,9 +61,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faranka — Track Every Birr. Automatically.",
-    description:
-      "Faranka reads your bank messages, categorizes spending, and shows real-time budgets — one-tap Google sign-in, on-device by default.",
+    title: ogTitle,
+    description: ogDescription,
     images: [
       {
         url: "/og-image.png",
@@ -74,8 +79,7 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   other: {
-    keywords:
-      "finance tracker,SMS banking,expense tracker,budget app,Ethiopian bank app,Awash Bank,CBE,spending tracker,personal finance,Android finance app",
+    keywords,
   },
 };
 
@@ -89,6 +93,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${bodyFont.variable} ${monoFont.variable} ${displayFont.variable}`}>
+        <EnableJs />
         {children}
       </body>
     </html>
