@@ -96,6 +96,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#0b0b0d" />
+      </head>
       <body className={`${bodyFont.variable} ${monoFont.variable} ${displayFont.variable}`}>
         <EnableJs />
         {children}
