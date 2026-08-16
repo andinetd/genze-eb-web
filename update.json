@@ -1,6 +1,7 @@
 {
-  "version_code": 83,
-  "version_name": "1.1.05",
-  "release_notes": "Automated Build for version 1.1.05",
-  "apk_url": "https://raw.githubusercontent.com/andinetd/genze-eb-web/main/public/faranka.apk"
+  "version_code": 88,
+  "version_name": "1.1.11",
+  "release_notes": "Automated Build for version 1.1.11",
+  "apk_url": "https://raw.githubusercontent.com/andinetd/genze-eb-web/main/public/faranka.apk",
+  "last_updated": "2026-08-16T03:03:10Z"
 }
