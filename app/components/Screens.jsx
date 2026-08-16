@@ -3,12 +3,12 @@ import PhoneMockup from "./PhoneMockup";
 
 const SCREENS = [
   {
-    src: "/home-light.webp",
+    src: "/home-dark.webp",
     alt: "Faranka home screen showing balance, categories and recent transactions",
     label: "Home",
     text: "Balance, category breakdown and budgets at a glance.",
     width: 842,
-    height: 1867,
+    height: 1771,
   },
   {
     src: "/transactions-light.webp",
@@ -19,7 +19,7 @@ const SCREENS = [
     height: 1707,
   },
   {
-    src: "/insights-light.webp",
+    src: "/insights-dark.webp",
     alt: "Faranka insights screen",
     label: "Insights",
     text: "Heatmaps, weekly summaries and spending anomalies.",
