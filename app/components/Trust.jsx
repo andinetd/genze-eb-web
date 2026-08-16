@@ -2,10 +2,10 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 
 const BANKS = [
-  { name: "Awash Bank", logo: "/awash-logo.webp", w: 128, h: 26 },
-  { name: "CBE", logo: "/cbe-logo.webp", w: 22, h: 22 },
-  { name: "Bank of Abyssinia", logo: "/boa-word.webp", w: 100, h: 26 },
-  { name: "Telebirr", logo: "/telebirr-logo.webp", w: 22, h: 22 },
+  { name: "Awash Bank", logo: "/awash-logo-dark.webp", w: 128, h: 26 },
+  { name: "CBE", logo: "/cbe-logo-dark.webp", w: 22, h: 22 },
+  { name: "Bank of Abyssinia", logo: "/boa-word-dark.webp", w: 100, h: 26 },
+  { name: "Telebirr", logo: "/telebirr-logo-dark.webp", w: 22, h: 22 },
 ];
 
 export default function Trust() {

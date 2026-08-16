@@ -725,7 +725,7 @@ button {
   min-height: 40px;
   padding: 8px 16px;
   border: 1px solid var(--line);
-  background: #ffffff;
+  background: var(--card);
   border-radius: var(--radius-pill);
 }
 
