@@ -6,7 +6,6 @@ import Trust from "./components/Trust";
 import Features from "./components/Features";
 import Screens from "./components/Screens";
 import HowItWorks from "./components/HowItWorks";
-import Pricing from "./components/Pricing";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
 import StructuredData from "./components/StructuredData";
@@ -24,7 +23,6 @@ export default async function Home() {
       <Features />
       <Screens />
       <HowItWorks />
-      <Pricing />
       <FinalCTA version={version} />
       <Footer />
     </main>
